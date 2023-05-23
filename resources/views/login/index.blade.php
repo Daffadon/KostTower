@@ -11,7 +11,7 @@
   <main class="min-h-screen bg-primary700">
     <div class="grid grid-cols-2">
       <div class="h-screen relative flex items-center">
-        <img src="{{url('/image/Group 5.svg')}}" alt="image" class="absolute w-[70%]">
+        <img src="{{url('/image/login.svg')}}" alt="image" class="absolute w-[70%]">
       </div>
       <div class="flex justify-center items-center">
         <form action="" method="POST" class="flex justify-center items-center bg-white w-[70%] h-[90%] rounded-3xl shadow-[0_10px_25px_rgba(0, 0, 0, 0.25)] ">
