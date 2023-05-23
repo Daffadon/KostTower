@@ -27,6 +27,9 @@
               <input type="password" name="password" id="sandi" class="w-full border-2 border-primary700 rounded-xl py-1 px-2 focus:outline-none">
             </div>
             <button type="submit" class="font-semibold text-sm w-full bg-primary700 mt-10 py-2 text-white rounded-xl">Masuk</button>
+            <p class="text-center mt-2 font-normal text-base">Belum memiliki akun? 
+              <a href="/signup" class="text-primary700">Daftar</a>
+            </p>
           </div>
         </form>
       </div>
