@@ -64,11 +64,11 @@ export default {
                 shade50: '#FFFFFF',
                 shade100: '#252525',
             },
-        },
 
-        fontFamily: {
-            poppins: 'Poppins'
-        }
+            fontFamily: {
+                poppins: 'Poppins'
+            }
+        },
     },
     plugins: [],
 };
