@@ -30,3 +30,6 @@ Route::get('/home', function () {
 Route::get('/new-sewa', function () {
     return view('addKamar.index');
 });
+Route::get('/new-penyewa', function () {
+    return view('addPenyewa.index');
+});
