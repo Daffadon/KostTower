@@ -23,7 +23,10 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/signup', [AuthController::class, 'signupView']);
 Route::post('/signup', [AuthController::class, 'login']);
 
-
 Route::get('/home', function () {
-    return view('components.navbar');
+    return view('home.index');
+});
+
+Route::get('/new-sewa', function () {
+    return view('addKamar.index');
 });
