@@ -10,7 +10,7 @@
   @include('components.navbar')
   <main class="grid grid-cols-[36.5%_59%] gap-10 px-6 pt-3 mb-10">
     <div class="bg-white min-h-screen rounded-[40px] shadow-2xl">
-      <img src="{{url('/image/dummy_kamar.svg')}}" alt="" class="relative -top-[0.5]">
+      <img src="{{url('/image/dummy_kamar.svg')}}" alt="" class="relative -top-[0.5] w-full">
       <h2 class="text-center font-bold text-2xl mt-4">KODE KAMAR</h2>
       <div class="grid grid-cols-5 px-8 gap-x-3 gap-y-8 my-10">
         @for ($i = 0; $i < 20; $i++)
