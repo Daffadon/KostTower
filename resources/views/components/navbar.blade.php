@@ -1,11 +1,11 @@
 <nav>
   <div class="h-[10vh] bg-primary700 flex items-center justify-between px-5 pr-10">
-    <div class="flex items-center gap-5">
-      <img src="{{url('/image/logo.svg')}}" alt="">
-      <p class="text-white">KOS TOWER</p>
-    </div>
+      <a href="/home" class="flex items-center gap-5">
+        <img src="{{url('/image/logo.svg')}}" alt="">
+        <p class="text-white">KOS TOWER</p>
+      </a>
     <div class="flex gap-6 items-center">
-      <p class="text-white">Beranda</p>
+      <a href="/home"><p class="text-white">Beranda</p></a>
       <p class="border border-white rounded-xl px-7 py-1 text-white">log Out</p>
     </div>
   </div>
