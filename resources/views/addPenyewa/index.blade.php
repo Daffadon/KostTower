@@ -31,8 +31,45 @@
       <div class="h-[15vh] justify-center flex items-center rounded-t-[40px] bg-primary700">
         <h1 class="text-white font-bold text-xl">PROFIL PENYEWA</h1>
       </div>
-      <div class="px-6 pl-12 mt-8">
-        
+      <div class="flex justify-center items-center my-8">
+        <form action="" class="font-bold w-72">
+          <div class="flex flex-col gap-3">
+            <label for="NIK">NIK</label>
+            <input name= "NIK" type="text" class="w-3/4 border border-black rounded-xl py-2 px-2" id="NIK" >
+          </div>
+          <div class="flex flex-col gap-3 mt-3">
+            <label for="nama-lengkap">Nama Lengkap</label>
+            <input name="nama-lengkap" type="text" class="w-3/4 border border-black rounded-xl py-2 px-2" id="nama-lengkap">
+          </div>
+          <div class="flex flex-col gap-3 mt-3">
+            <label for="ttl">Tempat Tanggal Lahir</label>
+            <input name="ttl" type="date" class="w-3/4 border border-black rounded-xl py-2 px-2" id="ttl">
+          </div>
+          <div class="flex flex-col gap-3 mt-3">
+            <label for="agama">Agama</label>
+            <input name="agama"type="text" class="w-3/4 border border-black rounded-xl py-2 px-2" id="agama">
+          </div>
+          <div class="flex flex-col gap-3 mt-3">
+            <label for="status">Status</label>
+            <input name="status"type="text" class="w-3/4 border border-black rounded-xl py-2 px-2" id="status">
+          </div>
+          <div class="flex flex-col gap-3 mt-3">
+            <label for="kewarganegaraan">Kewarganegaraan</label>
+            <input name="kewarganegaraan"type="text" class="w-3/4 border border-black rounded-xl py-2 px-2" id="kewarganegaraan">
+          </div>
+          <div class="flex flex-col gap-3 mt-3">
+            <label for="pekerjaan">Pekerjaan</label>
+            <input name="pekerjaan" type="text" class="w-3/4 border border-black rounded-xl py-2 px-2" id="pekerjaan">
+          </div>
+          <div class="flex flex-col gap-3 mt-3">
+            <label for="no-telp">Nomor Telepon</label>
+            <input name="no-telp"type="text" class="w-3/4 border border-black rounded-xl py-2 px-2" id="no-telp">
+          </div>
+          <div class="flex flex-col gap-3 mt-3">
+            <label for="alamat">Alamat</label>
+            <input name="alamat" type="text" class="w-3/4 border border-black rounded-xl py-2 px-2" id="alamat">
+          </div>
+        </form>
       </div>
     </div>
   </main>
