@@ -21,7 +21,8 @@ Route::get('/', function () {
 Route::get('/login', [AuthController::class, 'loginView']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::get('/signup', [AuthController::class, 'signupView']);
-Route::post('/signup', [AuthController::class, 'login']);
+Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/home', function () {
     return view('home.index');

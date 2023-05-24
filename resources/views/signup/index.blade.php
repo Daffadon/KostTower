@@ -13,7 +13,7 @@
         <img src="{{url('/image/signup.svg')}}" alt="image" class="absolute w-[70%]">
       </div>
       <div class="flex justify-center items-center">
-        <form action="" method="POST" class="flex justify-center items-center bg-white w-[70%] h-[90%] rounded-3xl shadow-[0_10px_25px_rgba(0, 0, 0, 0.25)] ">
+        <form action="{{route('signup')}}" method="POST" class="flex justify-center items-center bg-white w-[70%] h-[90%] rounded-3xl shadow-[0_10px_25px_rgba(0, 0, 0, 0.25)] ">
           @csrf
           <div class="flex flex-col justify-center items-center w-[70%]">
             <h2 class=" font-bold text-3xl mb-5">Daftar</h2>
@@ -23,7 +23,7 @@
             </div>
             <div class="w-full mt-2 flex flex-col gap-3">
               <label for="name" class="font-semibold self-start">Nama</label>
-              <input type="email" name="name" id="name" class="w-full border-2 border-primary700 rounded-xl py-1 px-2 focus:outline-none">
+              <input type="text" name="name" id="name" class="w-full border-2 border-primary700 rounded-xl py-1 px-2 focus:outline-none">
             </div>
             <div class="w-full mt-2 flex flex-col gap-3">
               <label for="password" class="font-semibold self-start">Sandi</label>

@@ -6,7 +6,9 @@
       </a>
     <div class="flex gap-6 items-center">
       <a href="/home"><p class="text-white">Beranda</p></a>
-      <p class="border border-white rounded-xl px-7 py-1 text-white">log Out</p>
+      <form action="{{ route('logout')}}" method="POST">
+        <input type="submit" value="Logout" class="border border-white rounded-xl px-7 py-1 text-white cursor-pointer">
+      </form>
     </div>
   </div>
 </nav>
