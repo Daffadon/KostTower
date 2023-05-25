@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PenyewaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,4 +34,9 @@ Route::get('/new-sewa', function () {
 });
 Route::get('/new-penyewa', function () {
     return view('addPenyewa.index');
+});
+Route::get('/tes', [PenyewaController::class, 'showPenyewa']);
+
+Route::get('/det', function () {
+    return view('detail.index');
 });
