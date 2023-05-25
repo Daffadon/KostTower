@@ -16,7 +16,7 @@
   }
 
   .h4 {
-    @apply md:yexy[27px]
+    @apply md:text[27px]
   }
 
   .h5 {

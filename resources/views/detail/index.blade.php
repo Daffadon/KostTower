@@ -16,6 +16,8 @@
 
       <div class="w-3/4 shadow-2xl rounded-3xl">
         @include('detail.detail_penyewa')
+        <p>
+        </p>
       </div>
     </div>
     
