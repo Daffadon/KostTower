@@ -8,7 +8,7 @@
   <title>Login</title>
 </head>
 <body>
-  <main class="min-h-screen bg-primary700">
+  <main class="min-h-screen bg-primary700 text">
     <div class="grid grid-cols-2">
       <div class="h-screen relative flex items-center">
         <img src="{{url('/image/login.svg')}}" alt="image" class="absolute w-[70%]">
