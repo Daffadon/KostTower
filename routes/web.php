@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\AddKamarController;
+use App\Http\Controllers\AddPenyewa;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\PenyewaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -32,3 +35,7 @@ Route::get('/new-sewa', function () {
 Route::get('/new-penyewa', function () {
     return view('addPenyewa.index');
 });
+
+Route::post('/new-penyewa', [AddPenyewa::class, 'addPenyewa']);
+
+Route::get('/detail', [PenyewaController::class, 'showPenyewa']);
