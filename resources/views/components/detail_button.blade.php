@@ -9,7 +9,9 @@
 </head>
 
 <body>
-    <button class="bg-secondary900 py-2 px-8 text-white font-semibold w-fit rounded-lg">Detail</button>
+    <a href="">
+      <button class="bg-secondary900 py-2 px-8 text-white font-semibold w-fit rounded-lg">Detail</button>
+    </a>
 </body>
 
 </html>

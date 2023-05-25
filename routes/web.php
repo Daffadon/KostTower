@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,7 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::get('/signup', [AuthController::class, 'signupView']);
 Route::post('/signup', [AuthController::class, 'login']);
 
-Route::get('/home', function () {
-    return view('home.index');
-});
+Route::get('/home', [HomeController::class, "showHome"]);
 
 Route::get('/new-sewa', function () {
     return view('addKamar.index');

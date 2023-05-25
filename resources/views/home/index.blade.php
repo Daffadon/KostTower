@@ -42,50 +42,25 @@
           <td class="h5 w-2/12 font-bold text-white bg-primary800 border border-r-white text-center">Keluar</td>
           <td class="h5 w-2/12 font-bold text-white bg-primary800 text-center rounded-tr-lg">Detail</td>
         </tr>
-        <tr>
-          <td class=" p-3 text-center font-semibold border border-r-primary800 border-b-primary800">105</td>
-          <td class="pl-2 font-semibold border border-r-primary800 border-b-primary800">Fahmi Fidmatan</td>
-          <td class="text-center font-semibold border border-r-primary800 border-b-primary800">15 - 03- 2023</td>
-          <td class="text-center font-semibold border border-r-primary800 border-b-primary800">15 - 04- 2023</td>
-          <td class="text-center font-semibold border border-b-primary800">@include('components.detail_button')</td>
-        </tr>
-        <tr>
-          <td class=" p-3 text-center font-semibold border border-r-primary800 border-b-primary800">105</td>
-          <td class="pl-2 font-semibold border border-r-primary800 border-b-primary800">Fahmi Fidmatan</td>
-          <td class="text-center font-semibold border border-r-primary800 border-b-primary800">15 - 03- 2023</td>
-          <td class="text-center font-semibold border border-r-primary800 border-b-primary800">15 - 04- 2023</td>
-          <td class="text-center font-semibold border border-b-primary800">@include('components.detail_button')</td>
-        </tr>
-        <tr>
-          <td class=" p-3 text-center font-semibold border border-r-primary800 border-b-primary800">105</td>
-          <td class="pl-2 font-semibold border border-r-primary800 border-b-primary800">Fahmi Fidmatan</td>
-          <td class="text-center font-semibold border border-r-primary800 border-b-primary800">15 - 03- 2023</td>
-          <td class="text-center font-semibold border border-r-primary800 border-b-primary800">15 - 04- 2023</td>
-          <td class="text-center font-semibold border border-b-primary800">@include('components.detail_button')</td>
-        </tr>
-        <tr>
-          <td class=" p-3 text-center font-semibold border border-r-primary800 border-b-primary800">105</td>
-          <td class="pl-2 font-semibold border border-r-primary800 border-b-primary800">Fahmi Fidmatan</td>
-          <td class="text-center font-semibold border border-r-primary800 border-b-primary800">15 - 03- 2023</td>
-          <td class="text-center font-semibold border border-r-primary800 border-b-primary800">15 - 04- 2023</td>
-          <td class="text-center font-semibold border border-b-primary800">@include('components.detail_button')</td>
-        </tr>
-        <tr>
-          <td class=" p-3 text-center font-semibold border border-r-primary800 border-b-primary800">105</td>
-          <td class="pl-2 font-semibold border border-r-primary800 border-b-primary800">Fahmi Fidmatan</td>
-          <td class="text-center font-semibold border border-r-primary800 border-b-primary800">15 - 03- 2023</td>
-          <td class="text-center font-semibold border border-r-primary800 border-b-primary800">15 - 04- 2023</td>
-          <td class="text-center font-semibold border border-b-primary800">@include('components.detail_button')</td>
-        </tr>
+        @foreach ($data as $data)
+          <tr>
+            <td class=" p-3 text-center font-semibold border border-r-primary800 border-b-primary800">{{$data['Kode_kamar']}}</td>
+            <td class="pl-2 font-semibold border border-r-primary800 border-b-primary800">{{$data['Nama']}}</td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800">{{$data['Tanggal_masuk']}}</td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800">{{$data['Tanggal_keluar']}}</td>
+            <td class="text-center font-semibold border border-b-primary800">@include('components.detail_button')</td>
+          </tr>
+        @endforeach
         <tr>
           <td class="bg-primary800 h5 w-1/12 rounded-bl-lg h-14"></td>
           <td class="bg-primary800"> </td>
           <td class="bg-primary800"> </td>
           <td class="bg-primary800"> </td>
-          <td class="bg-primary800"> </td>
+          <td class="bg-primary800 rounded-br-lg"> </td>
         </tr>
       </table>
     </div>
+    @include('components.footer')
 </body>
 
 </html>
