@@ -5,6 +5,7 @@ use App\Http\Controllers\AddPenyewa;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\PenyewaController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,9 +28,7 @@ Route::get('/signup', [AuthController::class, 'signupView']);
 Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-Route::get('/home', function () {
-    return view('home.index');
-});
+Route::get('/home', [HomeController::class, "showHome"]);
 
 Route::get('/new-sewa', function () {
     return view('addKamar.index');
