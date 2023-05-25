@@ -16,14 +16,15 @@
           <h1 class="text-white font-bold text-xl">Detail Sewa</h1>
         </div>
         <div class="flex justify-center items-center my-8">
-          <form action="" class="font-bold w-[70%]">
+          <form action="" class="font-bold w-[70%]" method="POST">
+          @csrf
             <div class="flex flex-col gap-3">
               <label for="NIK">NIK</label>
               <input name= "NIK" type="text" class=" border border-black rounded-xl py-2 px-2" id="NIK" >
             </div>
             <div class="flex flex-col gap-3 mt-3">
-              <label for="nama-lengkap">Nama Lengkap</label>
-              <input name="nama-lengkap" type="text" class="border border-black rounded-xl py-2 px-2" id="nama-lengkap">
+              <label for="nama_lengkap">Nama Lengkap</label>
+              <input name="nama_lengkap" type="text" class="border border-black rounded-xl py-2 px-2" id="nama-lengkap">
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="ttl">Tempat Tanggal Lahir</label>
@@ -46,8 +47,8 @@
               <input name="pekerjaan" type="text" class="border border-black rounded-xl py-2 px-2" id="pekerjaan">
             </div>
             <div class="flex flex-col gap-3 mt-3">
-              <label for="no-telp">Nomor Telepon</label>
-              <input name="no-telp"type="text" class="border border-black rounded-xl py-2 px-2" id="no-telp">
+              <label for="no_telp">Nomor Telepon</label>
+              <input name="no_telp"type="text" class="border border-black rounded-xl py-2 px-2" id="no-telp">
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="alamat">Alamat</label>
@@ -61,6 +62,5 @@
       </div>
     </div>
   </main>
-  @include('components.footer')
 </body>
 </html>

@@ -9,8 +9,9 @@
 <body>
   <div>
     <img class="w-full object-contain" src="{{url('/image/dummy_kamar.svg')}}" alt="">
+      @foreach ($data as $data)
         <p class="text-[34px] text-neutral-900 font-bold text-center mt-6">
-          B1
+          {{$data['Kode_kamar']}}
         </p>
         <div class="flex flex-col p-7 items-start gap-6">
           <div class="flex flex-col">
@@ -22,7 +23,7 @@
                 Masuk
               </p>
               <p class="text-[18px]">
-                24/05/2023
+                {{$data['Tanggal_masuk']}}
               </p>
             </div>
             <div class="mt-2">
@@ -30,7 +31,8 @@
                 Keluar
               </p>
               <p class="text-[18px]">
-                24/06/2023
+                {{$data['Tanggal_keluar']}}
+                
               </p>
             </div>
           </div>
@@ -61,10 +63,11 @@
             </p>
 
             <p class="font-bold text-[22px] text-err900">
-              Rp 500.000
+              Rp {{$data['Cost']}}
             </p>
           </div>
         </div>
+      @endforeach
   </div>
 </body>
 </html>
