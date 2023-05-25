@@ -11,8 +11,7 @@ return new class extends Migration {
   public function up(): void
   {
     Schema::create('kamar', function (Blueprint $table) {
-      $table->id();
-      $table->string('kode_kamar')->unique();
+      $table->string('kode_kamar');
       $table->integer('lantai');
       $table->boolean('kamar_mandi_dalam');
       $table->boolean('isBalkon');
@@ -20,6 +19,7 @@ return new class extends Migration {
       $table->boolean('isWaterHeater');
       $table->boolean('isKingBed');
       $table->integer('harga');
+      $table->primary('kode_kamar');
       $table->timestamps();
     });
   }

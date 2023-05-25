@@ -11,12 +11,14 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('log_transaksi', function (Blueprint $table) {
-            $table->id();
             $table->string('kode_kamar');
             $table->string('nik');
+            $table->date('tanggal_masuk');
+            $table->date('tanggal_keluar');
             $table->foreign('kode_kamar')->references('kode_kamar')->on('kamar')->onDelete('cascade');
             $table->foreign('nik')->references('nik')->on('penyewa')->onDelete('cascade');
             $table->timestamps();
+            $table->primary(['kode_kamar', 'nik', 'tanggal_masuk']);
         });
     }
 
