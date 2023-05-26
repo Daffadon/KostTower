@@ -18,7 +18,7 @@ class AddPenyewa extends Controller
         $model->pekerjaan= $req->pekerjaan;
         $model->telepon= $req->no_telp;
         $model->address= $req->alamat;
-        $model->timestamps= false;
+        $model->timestamps= now();
         $model->save();
         return redirect('/new-penyewa');
     }

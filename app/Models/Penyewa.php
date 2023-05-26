@@ -9,4 +9,6 @@ class Penyewa extends Model
 {
     protected $table = 'penyewa';
     protected $fillable = ['nik', 'nama', 'ttl', 'alamat', 'agama', 'status', 'pekerjaan', 'kewarganegaraan', 'telepon'];
+
+    public $timestamp = true;
 }

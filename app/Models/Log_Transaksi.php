@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Log_Transaksi extends Model
 {
-    
     protected $table = 'log_transaksi';
+    
+    public $timestamp = true;
 }

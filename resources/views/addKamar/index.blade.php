@@ -13,9 +13,12 @@
       <img src="{{url('/image/dummy_kamar.svg')}}" alt="" class="relative -top-[0.5] w-full">
       <h2 class="text-center font-bold text-2xl mt-4">KODE KAMAR</h2>
       <div class="grid grid-cols-5 px-8 gap-x-3 gap-y-8 my-10 mb-5">
-        @for ($i = 0; $i < 20; $i++)
-          <p class="text-center border-[5px] rounded-xl border-primary700 px-2 py-6 transition-all hover:text-white cursor-pointer hover:bg-primary700 font-bold">101</p>
-        @endfor
+        @foreach ($logTransaksi as $log)
+        <p class="text-center border-[5px] rounded-xl border-primary700 px-2 py-6 transition-all hover:text-white cursor-pointer hover:bg-primary700 font-bold">{{$log['kode_kamar']}}</p>
+        @endforeach
+        {{-- @for ($i = 0; $i < 20; $i++)
+        <p class="text-center border-[5px] rounded-xl border-primary700 px-2 py-6 transition-all hover:text-white cursor-pointer hover:bg-primary700 font-bold">101</p>
+        @endfor --}}
       </div>
       <div class="flex justify-center items-center gap-10 mb-4">
         <div class="flex items-center gap-2">

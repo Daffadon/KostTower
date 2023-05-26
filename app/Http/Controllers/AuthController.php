@@ -26,7 +26,7 @@ class AuthController extends Controller
     }
     public function signupView()
     {
-        return view('signup.index');
+        return view('signup/index');
     }
     public function signup(SignupRequest $request)
     {
@@ -38,7 +38,6 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($data)) {
-            // if (Auth::attempt(['email' => $user->email, 'password' => $request->password])) {
             $request->session()->regenerate();
             return redirect('/home');
         }
@@ -48,6 +47,6 @@ class AuthController extends Controller
         auth()->logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        return redirect('/');
+        return redirect('/login');
     }
 }
