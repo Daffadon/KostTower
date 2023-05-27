@@ -19,19 +19,19 @@
             <h2 class=" font-bold text-3xl mb-5">Daftar</h2>
             <div class="w-full flex flex-col gap-3">
               <label for="email" class="font-semibold self-start">Email</label>
-              <input type="email" name="email" id="email" class="w-full border-2 border-primary700 rounded-xl py-1 px-2 focus:outline-none">
+              <input required type="email" name="email" id="email" class="w-full border-2 border-primary700 rounded-xl py-1 px-2 focus:outline-none">
             </div>
             <div class="w-full mt-2 flex flex-col gap-3">
               <label for="name" class="font-semibold self-start">Nama</label>
-              <input type="text" name="name" id="name" class="w-full border-2 border-primary700 rounded-xl py-1 px-2 focus:outline-none">
+              <input required type="text" name="name" id="name" class="w-full border-2 border-primary700 rounded-xl py-1 px-2 focus:outline-none">
             </div>
             <div class="w-full mt-2 flex flex-col gap-3">
               <label for="password" class="font-semibold self-start">Sandi</label>
-              <input type="password" name="password" id="password" class="w-full border-2 border-primary700 rounded-xl py-1 px-2 focus:outline-none">
+              <input required type="password" name="password" id="password" class="w-full border-2 border-primary700 rounded-xl py-1 px-2 focus:outline-none">
             </div>
             <div class="w-full mt-2 flex flex-col gap-3">
               <label for="password_conf" class="font-semibold self-start">Konfirmasi Sandi</label>
-              <input type="password" name="password_confirmation" id="password_conf" class="w-full border-2 border-primary700 rounded-xl py-1 px-2 focus:outline-none">
+              <input required type="password" name="password_confirmation" id="password_conf" class="w-full border-2 border-primary700 rounded-xl py-1 px-2 focus:outline-none">
             </div>
             <button type="submit" class="font-semibold text-sm w-full bg-primary700 mt-10 py-3 text-white rounded-xl">Masuk</button>
             <p class="text-center mt-2 font-normal text-base">Sudah memiliki akun? 

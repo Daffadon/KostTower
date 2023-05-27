@@ -19,27 +19,25 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/login');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [AuthController::class, 'loginView'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+    Route::get('/signup', [AuthController::class, 'signupView'])->name('signup');
+    Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
+    Route::get('/', function () {
+        return redirect('/login');
+    });
 });
 
-Route::get('/login', [AuthController::class, 'loginView']);
-Route::post('/login', [AuthController::class, 'login']);
-Route::get('/signup', [AuthController::class, 'signupView']);
-Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
-Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+Route::middleware(['auth'])->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/home', [HomeController::class, "showHome"]);
+    // Route::post('/new-penyewa', [AddPenyewa::class, 'addPenyewa']);
+    Route::get('/detail', [PenyewaController::class, 'showPenyewa']);
+    Route::get('/kamar-to-sewa', [KamarController::class, 'showKamarToSewa']);
+    Route::post('/kamar-to-sewa', [KamarController::class, 'sendKamarToSewa']);
+    Route::get('/new-penyewa', function () {
+        return view('addPenyewa.index');
+    });
 
-Route::get('/home', [HomeController::class, "showHome"]);
-
-Route::get('/list-kamar', function () {
-    return view('listKamar.index');
 });
-
-Route::get('/new-penyewa', function () {
-    return view('addPenyewa.index');
-});
-Route::post('/new-penyewa', [PenyewaController::class, 'addPenyewa']);
-
-Route::get('/new-kamar', [KamarController::class, 'addKamar']);
-
-Route::get('/detail', [PenyewaController::class, 'showPenyewa']);
