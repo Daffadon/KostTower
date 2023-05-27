@@ -4,52 +4,98 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   @vite('resources/css/app.css')
-  <title>Tambah</title>
+  <title>List Kamar</title>
 </head>
 <body>
   @include('components.navbar')
-  <main class="grid grid-cols-[36.5%_59%] gap-10 px-6 pt-3 mb-10">
-    <div class="bg-white min-h-screen rounded-[40px] shadow-2xl pb-5">
-      <img src="{{url('/image/dummy_kamar.svg')}}" alt="" class="relative -top-[0.5] w-full">
-      <h2 class="text-center font-bold text-2xl mt-4">KODE KAMAR</h2>
-      <div class="grid grid-cols-5 px-8 gap-x-3 gap-y-8 my-10 mb-5">
-        @for ($i = 0; $i < 20; $i++)
-          <p class="text-center border-[5px] rounded-xl border-primary700 px-2 py-6 transition-all hover:text-white cursor-pointer hover:bg-primary700 font-bold">101</p>
-        @endfor
+  <div class="flex flex-col min-h-[70vh] gap-20 py-20">
+    <div class="flex items-center justify-between w-full px-24">
+      <div></div>
+      <div class="flex flex-col text-center place-self-center">
+        <p class="h3 font-bold">
+          Kamar
+        </p>
+        <p class="h6">
+          Berikut merupakan kamar yang Tersedia di Kos Tower
+        </p>
       </div>
-      <div class="flex justify-center items-center gap-10 mb-4">
-        <div class="flex items-center gap-2">
-          <div class=" bg-primary700 w-2 h-2"></div>
-          <p>Tersedia</p>
-        </div>
-        <div class="flex items-center gap-2">
-          <div class=" bg-[#AC88CE] w-2 h-2"></div>
-          <p>Tersewa</p>
-        </div>
-      </div>
+      <a class="place-self-end self-center" href="new-kamar">
+        <button class="h6 bg-primary900 py-4 px-2 mx-4 text-white font-semibold rounded-xl shadow-md hover:shadow-xl duration-300">Tambah Kamar</button>
+      </a>
     </div>
-    <div class="bg-white min-h-screen rounded-[40px] shadow-2xl">
-      <div class="h-[15vh] justify-center flex items-center rounded-t-[40px] bg-primary700">
-        <h1 class="text-white font-bold text-xl">REGULER</h1>
-      </div>
-      <div class="px-6 pl-12 mt-8">
-        <h2 class="font-bold text-2xl">Deskripsi</h2>
-        <p class="mt-3 w-[80%]">Kamar dengan kapasitas untuk satu orang yang dirancang secara khusus untuk menyediakan kenyamanan, seperti tempat tidur dengan ukuran tunggal dan keamanan yang terjamin.</p>
-        <h2 class="font-bold text-2xl mt-8">Fasilitas</h2>
-        <div class="grid grid-cols-3 px-2 gap-x-2 gap-y-4 my-5">
-          <p>Kamar Mandi</p>
-          <p>Kamar Mandi</p>
-          <p>Kamar Mandi</p>
-          <p>Kamar Mandi</p>
-          <p>Kamar Mandi</p>
-          <p>Kamar Mandi</p>
-          <p>Kamar Mandi</p>
-          <p>Kamar Mandi</p>
-        </div>
-        <h2 class="font-bold text-2xl">Harga</h2>
-        <p class=" text-red-500 font-semibold text-xl">Rp 500.000</p>
-      </div>
+    <div class="p-5 flex justify-center">
+      <table class="w-11/12 rounded-3xl shadow-xl">
+        <tr class="h-14">
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tl-lg">Kode Kamar</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">Lantai</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">Kamar Mandi Dalam</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">Balkon</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">AC</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">Water Heater</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">King Bed</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">Harga</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">Detail</td>
+        </tr>
+        @foreach ($kamar as $data)
+          <tr>
+            <td class=" p-3 text-center font-semibold border border-r-primary800 border-b-primary800">{{$data['kode_kamar']}}</td>
+            <td class="pl-2 font-semibold border border-r-primary800 border-b-primary800 text-center">{{$data['lantai']}}</td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800 text-3xl">
+              @if ($data['kamar_mandi_dalam'] === 1)
+                ✅
+              @else
+                ❌
+              @endif
+            </td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800 text-3xl">
+              @if ($data['isBalkon'] === 1)
+                ✅
+              @else
+                ❌
+              @endif
+            </td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800 text-3xl">
+              @if ($data['isAC'] === 1)
+                ✅
+              @else
+                ❌
+              @endif
+            </td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800 text-3xl">
+              @if ($data['isWaterHeater'] === 1)
+                ✅
+              @else
+                ❌
+              @endif
+            </td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800 text-3xl">
+              @if ($data['isKingBed'] === 1)
+                ✅
+              @else
+                ❌
+              @endif
+            </td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800">Rp {{$data['harga']}}</td>
+            <td class="text-center font-semibold border border-b-primary800">
+              @include('components.delete_button')
+              @include('components.update_button')
+            </td>
+          </tr>
+        @endforeach
+        <tr>
+          <td class="bg-primary800 h5 w-1/12 rounded-bl-lg h-14"></td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800 rounded-br-lg"> </td>
+        </tr>
+      </table>
     </div>
-  </main>
+  </div>
+  @include('components.footer')
 </body>
 </html>

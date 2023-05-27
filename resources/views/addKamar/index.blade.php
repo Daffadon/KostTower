@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Add Kamar</title>
   </head>
   <body>
     @include('components.navbar')
@@ -15,35 +15,47 @@
           TAMBAH KAMAR
         </p>
         <div class="flex flex-col gap-4 py-14 px-24">
-          <p class="h5 font-bold">
-            Kode Kamar
-          </p>
-          <p class="h6 border border-shade100 rounded-2xl py-4 px-6">
-            D31
-          </p>
-          <p class="h5 font-bold">
-            Fasilitas
-          </p>
           <form class="flex flex-col gap-2" action="" method="POST">
             @csrf
+            <p class="h5 font-bold">
+              Kode Kamar
+            </p>
+            <input 
+              class="mt-4 h6 w-full border outline-none border-shade100 rounded-2xl py-4 px-6" 
+              type="text" 
+              name="kode_kamar" 
+              placeholder="K00"
+              >
+              <p class="h5 font-bold">
+                Lantai
+              </p>
+              <input 
+                class="mt-4 h6 w-full border outline-none border-shade100 rounded-2xl py-4 px-6" 
+                type="text" 
+                name="lantai" 
+                placeholder="K00"
+                >
+            <p class="h5 font-bold">
+              Fasilitas
+            </p>
             <div class="flex items-center gap-5">
               <input class="w-5 h-5" type="checkbox" name="dalam" id="dalam">
               <label class="h6" for="dalam">Kamar mandi dalam</label>
             </div>
             <div class="flex items-center gap-5">
-              <input class="w-5 h-5" type="checkbox" name="dalam" id="ac">
+              <input class="w-5 h-5" type="checkbox" name="ac" id="ac">
               <label class="h6" for="ac">AC</label>
             </div>
             <div class="flex items-center gap-5">
-              <input class="w-5 h-5" type="checkbox" name="dalam" id="heater">
+              <input class="w-5 h-5" type="checkbox" name="heater" id="heater">
               <label class="h6" for="heater">Water Heater</label>
             </div>
             <div class="flex items-center gap-5">
-              <input class="w-5 h-5" type="checkbox" name="dalam" id="bed">
+              <input class="w-5 h-5" type="checkbox" name="bed" id="bed">
               <label class="h6" for="bed">King Bed</label>
             </div>
             <div class="flex items-center gap-5">
-              <input class="w-5 h-5" type="checkbox" name="dalam" id="balkon">
+              <input class="w-5 h-5" type="checkbox" name="balkon" id="balkon">
               <label class="h6" for="balkon">Balkon</label>
             </div>
             <div class="flex items-center gap-5">
@@ -65,7 +77,7 @@
             <input 
               class="h6 w-full border outline-none border-shade100 rounded-2xl py-4 px-6 placeholder:text-neutral-700" 
               type="text" 
-              name="tambahan" 
+              name="harga" 
               placeholder="Rp 0"
               >
               <div class="flex justify-center mt-10">

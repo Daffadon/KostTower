@@ -31,7 +31,4 @@ class PenyewaController extends Controller {
         return redirect('/list-kamar');
     }
 
-    function addToLogTransaksi(Request $req) {
-        $model= new Penyewa;
-    }
 }
