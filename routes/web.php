@@ -32,9 +32,10 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/home', [HomeController::class, "showHome"]);
-    Route::post('/new-penyewa', [AddPenyewa::class, 'addPenyewa']);
+    // Route::post('/new-penyewa', [AddPenyewa::class, 'addPenyewa']);
     Route::get('/detail', [PenyewaController::class, 'showPenyewa']);
-    Route::get('/new-kamar', [KamarController::class, 'showKamar']);
+    Route::get('/kamar-to-sewa', [KamarController::class, 'showKamarToSewa']);
+    Route::post('/kamar-to-sewa', [KamarController::class, 'sendKamarToSewa']);
     Route::get('/new-penyewa', function () {
         return view('addPenyewa.index');
     });
