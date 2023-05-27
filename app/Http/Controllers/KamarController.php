@@ -10,14 +10,17 @@ class KamarController extends Controller
 {
     function addKamar() {
         return view('addKamar.index');
+    }
+
     public function showKamarToSewa()
     {
         $logTransaksi = Log_Transaksi::rightJoin('kamar', 'kamar.kode_kamar', '=', 'log_transaksi.kode_kamar')
-            } ->where('log_transaksi.tanggal_keluar', '<=', date('Y-m-d'))
+            ->where('log_transaksi.tanggal_keluar', '<=', date('Y-m-d'))
             ->select('*')->get();
         $user = Auth::user();
         return view('sewa/kamarSewa', compact("logTransaksi", "user"));
     }
+    
     public function sendKamarToSewa(Request $request)
     {
         // print($request['kode_kamar']);
