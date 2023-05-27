@@ -14,4 +14,24 @@ class PenyewaController extends Controller {
         ->get();
         return view('detail.index', compact('data'));
     }
+
+    function addPenyewa(Request $req) {
+        $model= new Penyewa;
+        $model->nik= $req->NIK;
+        $model->nama= $req->nama_lengkap;
+        $model->ttl= $req->ttl;
+        $model->agama= $req->agama;
+        $model->status= $req->status;
+        $model->kewarganegaraan= $req->kewarganegaraan;
+        $model->pekerjaan= $req->pekerjaan;
+        $model->telepon= $req->no_telp;
+        $model->alamat= $req->alamat;
+        $model->save();
+
+        return redirect('/list-kamar');
+    }
+
+    function addToLogTransaksi(Request $req) {
+        $model= new Penyewa;
+    }
 }

@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddKamarController;
 use App\Http\Controllers\AddPenyewa;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\KamarController;
 use App\Http\Controllers\PenyewaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -30,13 +31,15 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/home', [HomeController::class, "showHome"]);
 
-Route::get('/new-sewa', function () {
-    return view('addKamar.index');
+Route::get('/list-kamar', function () {
+    return view('listKamar.index');
 });
+
 Route::get('/new-penyewa', function () {
     return view('addPenyewa.index');
 });
+Route::post('/new-penyewa', [PenyewaController::class, 'addPenyewa']);
 
-Route::post('/new-penyewa', [AddPenyewa::class, 'addPenyewa']);
+Route::get('/new-kamar', [KamarController::class, 'addKamar']);
 
 Route::get('/detail', [PenyewaController::class, 'showPenyewa']);
