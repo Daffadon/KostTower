@@ -39,5 +39,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/new-penyewa', function () {
         return view('addPenyewa.index');
     });
-
+    Route::get('/new-kamat', [KamarController::class, 'addKamar']);
 });

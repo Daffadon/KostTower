@@ -10,7 +10,7 @@
   <div>
     @foreach ($data as $data)
       <p class="text-shade50 font-bold text h3 text-center bg-primary800 py-4 rounded-t-3xl">
-        DETAIL PENYEWA KAMAR {{$data['Kode_kamar']}}
+        DETAIL PENYEWA KAMAR {{$data['kode_kamar']}}
       </p>
       <div class="py-16 px-16 flex flex-col gap-5">
         <div class="flex flex-col gap-2">
@@ -50,7 +50,7 @@
             Alamat
           </p>
           <p class="text-[18px]">
-            {{$data['address']}}
+            {{$data['alamat']}}
           </p>
         </div>
         <div class="flex flex-col gap-2">

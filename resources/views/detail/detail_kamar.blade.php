@@ -11,7 +11,7 @@
     <img class="w-full object-contain" src="{{url('/image/dummy_kamar.svg')}}" alt="">
       @foreach ($data as $data)
         <p class="text-[34px] text-neutral-900 font-bold text-center mt-6">
-          {{$data['Kode_kamar']}}
+          {{$data['kode_kamar']}}
         </p>
         <div class="flex flex-col p-7 items-start gap-6">
           <div class="flex flex-col">
@@ -23,7 +23,7 @@
                 Masuk
               </p>
               <p class="text-[18px]">
-                {{$data['Tanggal_masuk']}}
+                {{$data['tanggal_masuk']}}
               </p>
             </div>
             <div class="mt-2">
@@ -31,7 +31,7 @@
                 Keluar
               </p>
               <p class="text-[18px]">
-                {{$data['Tanggal_keluar']}}
+                {{$data['tanggal_keluar']}}
                 
               </p>
             </div>
@@ -63,7 +63,7 @@
             </p>
 
             <p class="font-bold text-[22px] text-err900">
-              Rp {{$data['Cost']}}
+              Rp {{$data['harga']}}
             </p>
           </div>
         </div>
