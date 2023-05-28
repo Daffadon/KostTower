@@ -18,7 +18,8 @@ class KamarController extends Controller
     }
     public function sendKamarToSewa(Request $request)
     {
-        // print($request['kode_kamar']);
-        return view('sewa/penyewaSewa', ['kode_kamar' => $request['kode_kamar']]);
+        $user = Auth::user();
+        $kode_kamar = $request['kode_kamar'];
+        return view('sewa/penyewaSewa', compact("kode_kamar", "user"));
     }
 }
