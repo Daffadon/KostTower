@@ -10,7 +10,7 @@
   <div>
     @foreach ($data as $data)
       <p class="text-shade50 font-bold text h3 text-center bg-primary800 py-4 rounded-t-3xl">
-        DETAIL PENYEWA KAMAR {{$data['Kode_kamar']}}
+        DETAIL PENYEWA KAMAR {{$data['kode_kamar']}}
       </p>
       <div class="py-16 px-16 flex flex-col gap-5">
         <div class="flex flex-col gap-2">
@@ -18,7 +18,7 @@
             Nama
           </p>
           <p class="text-[18px]">
-            {{$data['Nama']}}
+            {{$data['nama']}}
           </p>
         </div>
         <div class="flex flex-col gap-2">
@@ -26,7 +26,7 @@
             NIK
           </p>
           <p class="text-[18px]">
-            {{$data['NIK']}}
+            {{$data['nik']}}
           </p>
         </div>
         <div class="flex flex-col gap-2">
@@ -34,7 +34,7 @@
             TTL
           </p>
           <p class="text-[18px]">
-            {{date('F j, Y', strtotime($data['TTL']))}}
+            {{date('F j, Y', strtotime($data['ttl']))}}
           </p>
         </div>
         <div class="flex flex-col gap-2">
@@ -42,7 +42,7 @@
             Nomer Telepon
           </p>
           <p class="text-[18px]">
-            {{$data['Telepon']}}
+            {{$data['telepon']}}
           </p>
         </div>
         <div class="flex flex-col gap-2">
@@ -50,7 +50,7 @@
             Alamat
           </p>
           <p class="text-[18px]">
-            {{$data['Address']}}
+            {{$data['alamat']}}
           </p>
         </div>
         <div class="flex flex-col gap-2">
@@ -58,7 +58,7 @@
             Agama
           </p>
           <p class="text-[18px]">
-            {{$data['Agama']}}
+            {{$data['agama']}}
           </p>
         </div>
         <div class="flex flex-col gap-2">
@@ -66,7 +66,7 @@
             Status
           </p>
           <p class="text-[18px]">
-            {{$data['Status']}}
+            {{$data['status']}}
           </p>
         </div>
         <div class="flex flex-col gap-2">
@@ -74,7 +74,7 @@
             Pekerjaan
           </p>
           <p class="text-[18px]">
-            {{$data['Pekerjaan']}}
+            {{$data['pekerjaan']}}
           </p>
         </div>
         <div class="flex flex-col gap-2">
@@ -82,7 +82,7 @@
             Kewarganegaraan
           </p>
           <p class="text-[18px]">
-            {{$data['Kewarganegaraan']}}
+            {{$data['kewarganegaraan']}}
           </p>
         </div>
       </div>

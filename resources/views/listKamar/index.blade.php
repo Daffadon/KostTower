@@ -1,0 +1,101 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  @vite('resources/css/app.css')
+  <title>List Kamar</title>
+</head>
+<body>
+  @include('components.navbar')
+  <div class="flex flex-col min-h-[70vh] gap-20 py-20">
+    <div class="flex items-center justify-between w-full px-24">
+      <div></div>
+      <div class="flex flex-col text-center place-self-center">
+        <p class="h3 font-bold">
+          Kamar
+        </p>
+        <p class="h6">
+          Berikut merupakan kamar yang Tersedia di Kos Tower
+        </p>
+      </div>
+      <a class="place-self-end self-center" href="new-kamar">
+        <button class="h6 bg-primary900 py-4 px-2 mx-4 text-white font-semibold rounded-xl shadow-md hover:shadow-xl duration-300">Tambah Kamar</button>
+      </a>
+    </div>
+    <div class="p-5 flex justify-center">
+      <table class="w-11/12 rounded-3xl shadow-xl">
+        <tr class="h-14">
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tl-lg">Kode Kamar</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">Lantai</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">Kamar Mandi Dalam</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">Balkon</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">AC</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">Water Heater</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">King Bed</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">Harga</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">Detail</td>
+        </tr>
+        @foreach ($kamar as $data)
+          <tr>
+            <td class=" p-3 text-center font-semibold border border-r-primary800 border-b-primary800">{{$data['kode_kamar']}}</td>
+            <td class="pl-2 font-semibold border border-r-primary800 border-b-primary800 text-center">{{$data['lantai']}}</td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800 text-3xl">
+              @if ($data['kamar_mandi_dalam'] === 1)
+                ✅
+              @else
+                ❌
+              @endif
+            </td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800 text-3xl">
+              @if ($data['isBalkon'] === 1)
+                ✅
+              @else
+                ❌
+              @endif
+            </td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800 text-3xl">
+              @if ($data['isAC'] === 1)
+                ✅
+              @else
+                ❌
+              @endif
+            </td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800 text-3xl">
+              @if ($data['isWaterHeater'] === 1)
+                ✅
+              @else
+                ❌
+              @endif
+            </td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800 text-3xl">
+              @if ($data['isKingBed'] === 1)
+                ✅
+              @else
+                ❌
+              @endif
+            </td>
+            <td class="text-center font-semibold border border-r-primary800 border-b-primary800">Rp {{$data['harga']}}</td>
+            <td class="text-center font-semibold border border-b-primary800">
+              @include('components.delete_button')
+              @include('components.update_button')
+            </td>
+          </tr>
+        @endforeach
+        <tr>
+          <td class="bg-primary800 h5 w-1/12 rounded-bl-lg h-14"></td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800"> </td>
+          <td class="bg-primary800 rounded-br-lg"> </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  @include('components.footer')
+</body>
+</html>

@@ -40,4 +40,9 @@ Route::middleware(['auth'])->group(function () {
         return view('addPenyewa.index');
     });
 
+    Route::get('/list-kamar', [KamarController::class, 'showListKamar']);
+    Route::get('/new-kamar', [KamarController::class, 'showAddKamar']);
+    Route::post('/new-kamar', [KamarController::class, 'addKamar']);
+    Route::delete('/list-kamar', [KamarController::class, 'deleteKamar']);
+    
 });

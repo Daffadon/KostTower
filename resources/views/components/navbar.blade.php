@@ -4,12 +4,15 @@
         <img src="{{url('/image/logo.svg')}}" alt="logo">
         <p class="text-white text-xl font-bold">KOS TOWER</p>
       </a>
-      <div class="text-white text-2xl">
+      {{-- <div class="text-white text-2xl">
         {{$user['name']}}
-      </div>
-    <div class="flex gap-6">
+      </div> --}}
+    <div class="flex gap-7">
       <a href="/home" class="flex justify-center items-center">
-        <p class="text-white text-xl font-bold">Beranda</p>
+        <p class="text-white text-xl font-semibold">Beranda</p>
+      </a>
+      <a href="/list-kamar" class="flex justify-center items-center">
+        <p class="text-white text-xl font-semibold">Tambah Kamar</p>
       </a>
       <form action="{{ route('logout')}}" method="POST" class="flex justify-center items-center mt-3">
         @csrf
