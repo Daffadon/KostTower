@@ -44,5 +44,5 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/new-kamar', [KamarController::class, 'showAddKamar']);
     Route::post('/new-kamar', [KamarController::class, 'addKamar']);
     Route::delete('/list-kamar', [KamarController::class, 'deleteKamar']);
-    
+
 });

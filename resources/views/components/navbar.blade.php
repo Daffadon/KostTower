@@ -12,7 +12,7 @@
         <p class="text-white text-xl font-semibold">Beranda</p>
       </a>
       <a href="/list-kamar" class="flex justify-center items-center">
-        <p class="text-white text-xl font-semibold">Tambah Kamar</p>
+        <p class="text-white text-xl font-semibold">Kamar</p>
       </a>
       <form action="{{ route('logout')}}" method="POST" class="flex justify-center items-center mt-3">
         @csrf
