@@ -3,6 +3,7 @@
 use App\Http\Controllers\AddKamarController;
 use App\Http\Controllers\AddPenyewa;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\KamarController;
 use App\Http\Controllers\PenyewaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -18,24 +19,30 @@ use App\Http\Controllers\HomeController;
 |
 */
 
-Route::get('/', function () {
-    return redirect('/login');
+Route::middleware(['guest'])->group(function () {
+    Route::get('/login', [AuthController::class, 'loginView'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+    Route::get('/signup', [AuthController::class, 'signupView'])->name('signup');
+    Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
+    Route::get('/', function () {
+        return redirect('/login');
+    });
 });
 
-Route::get('/login', [AuthController::class, 'loginView']);
-Route::post('/login', [AuthController::class, 'login']);
-Route::get('/signup', [AuthController::class, 'signupView']);
-Route::post('/signup', [AuthController::class, 'login']);
+Route::middleware(['auth'])->group(function () {
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::get('/home', [HomeController::class, "showHome"]);
+    // Route::post('/new-penyewa', [AddPenyewa::class, 'addPenyewa']);
+    Route::get('/detail', [PenyewaController::class, 'showPenyewa']);
+    Route::get('/kamar-to-sewa', [KamarController::class, 'showKamarToSewa']);
+    Route::post('/kamar-to-sewa', [KamarController::class, 'sendKamarToSewa']);
+    Route::get('/new-penyewa', function () {
+        return view('addPenyewa.index');
+    });
 
-Route::get('/home', [HomeController::class, "showHome"]);
-
-Route::get('/new-sewa', function () {
-    return view('addKamar.index');
+    Route::get('/list-kamar', [KamarController::class, 'showListKamar']);
+    Route::get('/new-kamar', [KamarController::class, 'showAddKamar']);
+    Route::post('/new-kamar', [KamarController::class, 'addKamar']);
+    Route::delete('/list-kamar', [KamarController::class, 'deleteKamar']);
+    
 });
-Route::get('/new-penyewa', function () {
-    return view('addPenyewa.index');
-});
-
-Route::post('/new-penyewa', [AddPenyewa::class, 'addPenyewa']);
-
-Route::get('/detail', [PenyewaController::class, 'showPenyewa']);

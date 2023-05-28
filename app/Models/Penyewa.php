@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Penyewa extends Model
 {
-    use HasFactory;
-    protected $table= 'penyewa';
+    protected $table = 'penyewa';
+    protected $fillable = ['nik', 'nama', 'ttl', 'alamat', 'agama', 'status', 'pekerjaan', 'kewarganegaraan', 'telepon'];
+
+    public $timestamp = true;
 }

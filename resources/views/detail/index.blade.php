@@ -9,9 +9,9 @@
   </head>
   <body>
     @include('components.navbar')
-    <div class="p-12 box-border flex gap-12">
+    <div class="p-12 box-border flex gap-12 min-h-[75vh]">
       <div class="w-1/4 rounded-3xl shadow-2xl h-fit sticky top-8">
-        @include('detail.detail_kamar')
+        @include('detail.detail_kamar') 
       </div>
 
       <div class="w-3/4 shadow-2xl rounded-3xl">
@@ -20,6 +20,6 @@
         </p>
       </div>
     </div>
-    
+    @include('components.footer')
   </body>
 </html> 
