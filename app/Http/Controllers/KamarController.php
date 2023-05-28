@@ -54,10 +54,11 @@ class KamarController extends Controller
     function deleteKamar(Request $req) {
         
         $kode= $req -> kode;
-        $data = Kamar::findOrFail($kode);
+        $data = Kamar::where('kamar.kode_kamar','$kode');
+        return $data;
         $data->delete();
-        return back();
-        // return redirect('/list-kamar');  
+        // return back();
+        return redirect('/new-kamar');  
     }
 
     public function isChecked($var) {
