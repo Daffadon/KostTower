@@ -8,8 +8,8 @@
 </head>
 
 <body>
-    <a href="detail?id={{$data['kode_kamar']}}">
-      <button class="bg-success500 py-1 px-6 mx-4 text-white font-semibold  rounded-lg">Update</button>
+    <a href="edit?kode={{$data['kode_kamar']}}">
+      <button class="bg-success500 py-2 px-6 mx-4 text-white font-semibold  rounded-lg">Update</button>
     </a>
 </body>
 
