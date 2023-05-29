@@ -17,7 +17,7 @@ class logTransaksiSeeder extends Seeder
                 'kode_kamar' => 'K001',
                 'nik' => '1234567890',
                 'tanggal_masuk' => '2023-05-01',
-                'tanggal_keluar' => '2023-05-29',
+                'tanggal_keluar' => '2023-05-28',
             ],
             [
                 'kode_kamar' => 'K002',

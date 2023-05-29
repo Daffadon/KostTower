@@ -5,6 +5,7 @@ use App\Http\Controllers\AddPenyewa;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\KamarController;
 use App\Http\Controllers\PenyewaController;
+use App\Http\Controllers\SewaController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
@@ -32,14 +33,14 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/home', [HomeController::class, "showHome"]);
-    // Route::post('/new-penyewa', [AddPenyewa::class, 'addPenyewa']);
     Route::get('/detail', [PenyewaController::class, 'showPenyewa']);
-    Route::get('/kamar-to-sewa', [KamarController::class, 'showKamarToSewa']);
-    Route::post('/kamar-to-sewa', [KamarController::class, 'sendKamarToSewa']);
+    Route::get('/kamar-to-sewa', [SewaController::class, 'showKamarToSewa']);
+    Route::post('/kamar-to-sewa', [SewaController::class, 'sendKamarToSewa']);
+    Route::get('/add-kamar-to-penyewa', [SewaController::class, 'toAddKamarToPenyewa']);
+    Route::post('/penyewa-to-sewa', [SewaController::class, 'addKamarToPenyewa']);
     Route::get('/new-penyewa', function () {
         return view('addPenyewa.index');
     });
-
     Route::get('/list-kamar', [KamarController::class, 'showListKamar']);
     Route::get('/new-kamar', [KamarController::class, 'showAddKamar']);
     Route::post('/new-kamar', [KamarController::class, 'addKamar']);
