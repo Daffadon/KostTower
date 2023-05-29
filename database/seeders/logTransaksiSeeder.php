@@ -38,7 +38,6 @@ class logTransaksiSeeder extends Seeder
                 'tanggal_keluar' => '2023-05-30',
             ],
         ];
-
         DB::table('log_transaksi')->insert($logTransaksi);
     }
 }
