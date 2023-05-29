@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 
 class PenyewaController extends Controller
 {
-    function showPenyewa(Request $req)
+    function showDetailPenyewa(Request $req)
     {
         $key = $req->id;
         $data = Penyewa::join('log_transaksi', 'log_transaksi.nik', '=', 'penyewa.nik')
@@ -31,6 +31,11 @@ class PenyewaController extends Controller
         $model->save();
 
         return redirect('/list-kamar');
+    }
+
+    function showPenyewa(Request $req){
+        $data = Penyewa::all();
+        return view('penyewa/home', compact('data'));
     }
 
 }

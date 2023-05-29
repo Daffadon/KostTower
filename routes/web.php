@@ -33,11 +33,11 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/home', [HomeController::class, "showHome"]);
     // Route::post('/new-penyewa', [AddPenyewa::class, 'addPenyewa']);
-    Route::get('/detail', [PenyewaController::class, 'showPenyewa']);
+    Route::get('/detail', [PenyewaController::class, 'showDetailPenyewa']);
     Route::get('/kamar-to-sewa', [KamarController::class, 'showKamarToSewa']);
     Route::post('/kamar-to-sewa', [KamarController::class, 'sendKamarToSewa']);
     Route::get('/new-penyewa', function () {
-        return view('addPenyewa.index');
+        return view('penyewa.index');
     });
 
     Route::get('/list-kamar', [KamarController::class, 'showListKamar']);
