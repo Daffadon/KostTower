@@ -5,13 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   @vite('resources/css/app.css')
+  <link rel="icon" href="{{url('/image/logo.svg')}}">
   <title>Login</title>
 </head>
 <body>
   <main class="min-h-screen bg-primary700 text">
     <div class="grid grid-cols-2">
       <div class="h-screen relative flex items-center">
-        <img src="{{url('/image/login.svg')}}" alt="image" class="absolute w-[70%]">
+        <img src="{{url('/image/login.svg')}}" alt="image" class="absolute w-[70%] z-0">
+        @if ($errors->any())
+        <div class="z-30 mx-auto bg-[#FAFAFA] backdrop-blur-lg border-2 min-h-[5vh] rounded-lg py-5 border-err500 w-[20em] text-err500 px-8">
+          <ul class=" list-disc ">
+            @foreach ($errors->all() as $error)
+            <li class="font-bold">{{$error}}</li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
       </div>
       <div class="flex justify-center items-center">
         <form action="" method="POST" class="flex justify-center items-center bg-white w-[70%] h-[90%] rounded-3xl shadow-[0_10px_25px_rgba(0, 0, 0, 0.25)] ">

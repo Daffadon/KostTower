@@ -4,6 +4,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   @vite('resources/css/app.css')
+  <link rel="icon" href="{{url('/image/logo.svg')}}">
   <title>List Kamar</title>
 </head>
 <body>
@@ -30,15 +31,17 @@
           <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">Lantai</td>
           <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">Kamar Mandi Dalam</td>
           <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">Balkon</td>
-          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">AC</td>
-          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">Water Heater</td>
-          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">King Bed</td>
-          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">Harga</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">AC</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">Water Heater</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">King Bed</td>
+          <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">Harga</td>
           <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">Detail</td>
         </tr>
         @foreach ($kamar as $data)
           <tr>
-            <td class=" p-3 text-center font-semibold border border-r-primary800 border-b-primary800">{{$data['kode_kamar']}}</td>
+            <td class=" p-3 text-center font-semibold border border-r-primary800 border-b-primary800">
+              {{$data['kode_kamar']}}
+            </td>
             <td class="pl-2 font-semibold border border-r-primary800 border-b-primary800 text-center">{{$data['lantai']}}</td>
             <td class="text-center font-semibold border border-r-primary800 border-b-primary800 text-3xl">
               @if ($data['kamar_mandi_dalam'] === 1)
@@ -76,7 +79,7 @@
               @endif
             </td>
             <td class="text-center font-semibold border border-r-primary800 border-b-primary800">Rp {{$data['harga']}}</td>
-            <td class="text-center font-semibold border border-b-primary800">
+            <td class="text-center font-semibold border border-b-primary800 flex justify-center pt-4">
               @include('components.delete_button')
               @include('components.update_button')
             </td>

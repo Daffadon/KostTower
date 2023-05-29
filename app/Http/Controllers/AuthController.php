@@ -7,6 +7,7 @@ use App\Http\Requests\SignupRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 class AuthController extends Controller
 {
@@ -22,7 +23,7 @@ class AuthController extends Controller
             $request->session()->regenerate();
             return redirect('/home');
         }
-        return back()->withErrors("Please Check your email or password");
+        return back()->withErrors(["Please Check your Email or Password"]);
     }
     public function signupView()
     {
@@ -30,23 +31,26 @@ class AuthController extends Controller
     }
     public function signup(SignupRequest $request)
     {
-        $data = $request->validated();
-        $user = User::create([
-            'name' => $data["name"],
-            'email' => $data["email"],
-            'password' => Hash::make($data["password"]),
-        ]);
+        try {
+            $data = $request->validated();
+            $user = User::create([
+                'name' => $data["name"],
+                'email' => $data["email"],
+                'password' => Hash::make($data["password"]),
+            ]);
 
-        if (Auth::attempt($data)) {
-            $request->session()->regenerate();
-            return redirect('/home');
+            if (Auth::attempt($data)) {
+                $request->session()->regenerate();
+                return redirect('/home');
+            }
+        } catch (ValidationException $e) {
+            $errorMessages = $e->validator->getMessageBag()->all();
+            return redirect()->back()->withErrors($errorMessages)->withInput();
         }
     }
     public function logout()
     {
-        auth()->logout();
-        request()->session()->invalidate();
-        request()->session()->regenerateToken();
+        Auth::logout();
         return redirect('/login');
     }
 }
