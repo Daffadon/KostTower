@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Kamar;
 use App\Models\Log_Transaksi;
+use Carbon\Traits\ToStringFormat;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -40,12 +41,40 @@ class KamarController extends Controller
     function deleteKamar(Request $req)
     {
         $kode = $req->kode;
-        $kamar = Kamar::where('kode_kamar', $kode)->first();
+        $kamar = Kamar::where('kode_kamar',$kode)->first();
+        $kamar -> delete();
+        return redirect('list-kamar');
+    }
 
+    function passData(Request $req) {
+        $kode = $req->kode;
+        $kamar = Kamar::where('kode_kamar', $kode)->first();
+        return view('updateKamar.index', compact('kamar'));
+    }
+
+    function updateKamar(Request $req) {
+        $kode = $req->kode;
+    
+        $dalam = $this->isChecked($req->input('dalam', false));
+        $ac = $this->isChecked($req->input('ac', false));
+        $balkon = $this->isChecked($req->input('balkon', false));
+        $heater = $this->isChecked($req->input('heater', false));
+        $bed = $this->isChecked($req->input('bed', false));
+    
+        $kamar = Kamar::where('kode_kamar', $kode)->first();
         if ($kamar) {
-            $kamar->delete();
+            $kamar->lantai = $req->lantai;  
+            $kamar->kamar_mandi_dalam = $dalam;
+            $kamar->kode_kamar = $req->kode;
+            $kamar->isAc = $ac;
+            $kamar->isBalkon = $balkon;
+            $kamar->isWaterHeater = $heater;
+            $kamar->isKingBed = $bed;
+            $kamar->harga = $req->harga;
+            $kamar->save();
+            }
+        
             return redirect('/list-kamar');
-        }
     }
 
     public function isChecked($var)

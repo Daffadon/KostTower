@@ -5,15 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" href="{{url('/image/logo.svg')}}">
-    <title>Add Kamar</title>
+    <title>Edit Kamar</title>
   </head>
   <body>
     @include('components.navbar')
     <div class="min-h-[75vh] flex justify-center py-16 box-border">
       <div class="flex flex-col h-max w-[70vw] py-3 shadow-md rounded-3xl">
         <p class="h3 font-bold text-shade50 bg-primary800 py-4 rounded-t-3xl text-center">
-          TAMBAH KAMAR
+          EDIT KAMAR
         </p>
         <div class="flex flex-col gap-4 py-14 px-24">
           <form class="flex flex-col gap-2" action="" method="POST">
@@ -21,11 +20,13 @@
             <p class="h5 font-bold">
               Kode Kamar
             </p>
+            <input class="hidden" type="text" name="kode" value={{$kamar['kode_kamar']}}>
             <input 
               class="mt-4 h6 w-full border outline-none border-shade100 rounded-2xl py-4 px-6" 
               type="text" 
               name="kode_kamar" 
-              placeholder="K00"
+              value={{$kamar['kode_kamar']}}
+              disabled
               >
               <p class="h5 font-bold">
                 Lantai
@@ -34,7 +35,7 @@
                 class="mt-4 h6 w-full border outline-none border-shade100 rounded-2xl py-4 px-6" 
                 type="text" 
                 name="lantai" 
-                placeholder="Lantai"
+                value={{$kamar['lantai']}}
                 >
             <p class="h5 font-bold">
               Fasilitas
@@ -66,10 +67,10 @@
               class="h6 w-full border outline-none border-shade100 rounded-2xl py-4 px-6 placeholder:text-neutral-700" 
               type="text" 
               name="harga" 
-              placeholder="Rp 0"
+              value={{$kamar  ['harga']}}
               >
               <div class="flex justify-center mt-10">
-                <button type="submit" class="text-center font-semibold h5 bg-primary800 mt-10 py-3 text-white rounded-xl mb-10 w-[40%]">Tambah</button>
+                <button type="submit" class="text-center font-semibold h5 bg-primary800 mt-10 py-3 text-white rounded-xl mb-10 w-[40%]">Submit</button>
               </div>
             </div>
           </form>
