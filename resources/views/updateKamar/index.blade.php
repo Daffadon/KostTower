@@ -83,7 +83,7 @@
               value={{$kamar  ['harga']}}
               >
               <div class="flex justify-center mt-10">
-                <button type="submit" class="text-center font-semibold h5 bg-primary800 mt-10 py-3 text-white rounded-xl mb-10 w-[40%]">Tambah</button>
+                <button type="submit" class="text-center font-semibold h5 bg-primary800 mt-10 py-3 text-white rounded-xl mb-10 w-[40%]">Submit</button>
               </div>
             </div>
           </form>

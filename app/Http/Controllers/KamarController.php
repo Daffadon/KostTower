@@ -52,12 +52,9 @@ class KamarController extends Controller
     function deleteKamar(Request $req)
     {
         $kode = $req->kode;
-        $kamar = Kamar::where('kode_kamar', $kode)->first();
-
-        if ($kamar) {
-            $kamar->delete();
-            return redirect('/list-kamar');
-        }
+        $kamar = Kamar::where('kode_kamar',$kode)->first();
+        $kamar -> delete();
+        return redirect('list-kamar');
     }
 
     function passData(Request $req) {
@@ -75,31 +72,17 @@ class KamarController extends Controller
         $heater = $this->isChecked($req->input('heater', false));
         $bed = $this->isChecked($req->input('bed', false));
     
-        
-        // if ($kamar) {
-            // $kamar->lantai = $req->lantai;  
-            // $kamar->kamar_mandi_dalam = $dalam;
-            // $kamar->kode_kamar = $req->kode_kamar;
-            // $kamar->isAc = $ac;
-            // $kamar->isBalkon = $balkon;
-            // $kamar->isWaterHeater = $heater;
-            // $kamar->isKingBed = $bed;
-            // $kamar->harga = $req->harga;
-            // $kamar->save();
-            // }
-            
-            $kamar = Kamar::where('kode_kamar', $kode)->first();
-            if ($kamar) {
-                $kamar->update([
-                    'kode_kamar' => $req->kode_kamar,
-                    'lantai' => $req->lantai,
-                    'kamar_mandi_dalam' => $dalam,
-                    'isAc' => $ac,
-                    'isBalkon' => $balkon,
-                    'isWaterHeater' => $heater,
-                    'isKingBed' => $bed,
-                    'harga' => $req->harga,
-                ]);
+        $kamar = Kamar::where('kode_kamar', $kode)->first();
+        if ($kamar) {
+            $kamar->lantai = $req->lantai;  
+            $kamar->kamar_mandi_dalam = $dalam;
+            $kamar->kode_kamar = $req->kode;
+            $kamar->isAc = $ac;
+            $kamar->isBalkon = $balkon;
+            $kamar->isWaterHeater = $heater;
+            $kamar->isKingBed = $bed;
+            $kamar->harga = $req->harga;
+            $kamar->save();
             }
         
             return redirect('/list-kamar');
