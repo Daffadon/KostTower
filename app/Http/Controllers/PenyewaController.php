@@ -54,10 +54,10 @@ class PenyewaController extends Controller
         return view('penyewa.listsewa');
     }
 
-    function listPenyewaUpdate(Request $req){
-        $isUpdate = true;
-
-        // return view('penyewa.listsewa',['isUpdate' => $isUpdate]);
+    function passPenyewa(Request $req){
+        $nik = $req -> nik;
+        $penyewa = Penyewa::where('nik', $nik) -> first();
+        return view('penyewa.listsewa', compact('penyewa'));
     }
 
 }

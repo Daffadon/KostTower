@@ -79,7 +79,7 @@
               @endif
             </td>
             <td class="text-center font-semibold border border-r-primary800 border-b-primary800">Rp {{$data['harga']}}</td>
-            <td class="text-center font-semibold border border-b-primary800">
+            <td class="text-center font-semibold border border-b-primary800 flex justify-center pt-4">
               @include('components.delete_button')
               @include('components.update_button')
             </td>

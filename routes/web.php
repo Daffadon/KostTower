@@ -44,5 +44,8 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/list-kamar', [KamarController::class, 'deleteKamar']);
     Route::delete('/penyewa', [PenyewaController::class, 'deletePenyewa']);
     Route::post('/new-penyewa', [PenyewaController::class, 'listPenyewa']);
-    Route::post('/update-penyewa', [PenyewaController::class], 'listPenyewaUpdate');
+    Route::get('/edit-penyewa', [PenyewaController::class, 'passPenyewa']);    
+    Route::get('/edit', [KamarController::class, 'passData']);
+    Route::post('/edit', [KamarController::class, 'updateKamar']);
+
 });

@@ -59,10 +59,9 @@
                     {{$item['telepon']}}
                 </td>
                 <td>
-                    <form action="/update-penyewa", method="POST">
-                        @csrf
+                    <a href="/edit-penyewa?nik={{$item['nik']}}">
                         <button>Update</button>
-                    </form>
+                    </a>
                 </td>
                 <td>
                     <form action="/penyewa?nik={{$item['nik']}}" method="POST">

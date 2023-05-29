@@ -8,6 +8,9 @@
   <title>Tambah</title>
 </head>
 <body>
+  @if(isset($penyewa))
+  @else
+  @endif
   @include('components.navbar')
   <main class="px-6 pt-3 mb-10 flex justify-center items-center flex-col">
     <div class="w-[50%]">
@@ -21,46 +24,91 @@
           @csrf
             <div class="flex flex-col gap-3">
               <label for="NIK">NIK</label>
-              <input name= "NIK" type="text" class=" border border-black rounded-xl py-2 px-2" id="NIK" >
+              <input 
+              name= "NIK" 
+              type="text" 
+              class=" border border-black rounded-xl py-2 px-2" 
+              id="NIK" 
+              value=@if(isset($penyewa))
+              {{$penyewa['nik']}}
+              @else 
+                ''
+              @endif>
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="nama_lengkap">Nama Lengkap</label>
-              <input name="nama_lengkap" type="text" class="border border-black rounded-xl py-2 px-2" id="nama-lengkap">
+              <input 
+              name="nama_lengkap" 
+              type="text" 
+              class="border border-black rounded-xl py-2 px-2" 
+              id="nama-lengkap"
+              value={{$penyewa['nama']}}>
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="ttl">Tempat Tanggal Lahir</label>
-              <input name="ttl" type="date" class="border border-black rounded-xl py-2 px-2" id="ttl">
+              <input 
+              name="ttl" 
+              type="date" 
+              class="border border-black rounded-xl py-2 px-2" 
+              id="ttl"
+              value={{$penyewa['ttl']}}>
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="agama">Agama</label>
-              <input name="agama"type="text" class="border border-black rounded-xl py-2 px-2" id="agama">
+              <input 
+              name="agama"
+              type="text" 
+              class="border border-black rounded-xl py-2 px-2" 
+              id="agama"
+              value={{$penyewa['agama']}}>
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="status">Status</label>
-              <input name="status"type="text" class="border border-black rounded-xl py-2 px-2" id="status">
+              <input 
+              name="status"
+              type="text" 
+              class="border border-black rounded-xl py-2 px-2" 
+              id="status"
+              value={{$penyewa['status']}}>
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="kewarganegaraan">Kewarganegaraan</label>
-              <input name="kewarganegaraan"type="text" class=" border border-black rounded-xl py-2 px-2" id="kewarganegaraan">
+              <input 
+              name="kewarganegaraan"
+              type="text" 
+              class=" border border-black rounded-xl py-2 px-2" 
+              id="kewarganegaraan"
+              value={{$penyewa['kewarganegaraan']}}>
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="pekerjaan">Pekerjaan</label>
-              <input name="pekerjaan" type="text" class="border border-black rounded-xl py-2 px-2" id="pekerjaan">
+              <input 
+              name="pekerjaan" 
+              type="text" 
+              class="border border-black rounded-xl py-2 px-2" 
+              id="pekerjaan"
+              value={{$penyewa['pekerjaan']}}>
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="no_telp">Nomor Telepon</label>
-              <input name="no_telp"type="text" class="border border-black rounded-xl py-2 px-2" id="no-telp">
+              <input 
+              name="no_telp"
+              type="text" 
+              class="border border-black rounded-xl py-2 px-2" 
+              id="no-telp"
+              value={{$penyewa['telepon']}}>
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="alamat">Alamat</label>
-              <input name="alamat" type="text" class="border border-black rounded-xl py-2 px-2" id="alamat">
+              <input 
+              name="alamat" 
+              type="text" 
+              class="border border-black rounded-xl py-2 px-2" 
+              id="alamat"
+              value={{$penyewa['alamat']}}>
             </div>
             <div class="flex justify-center items-center">
-              @if(isset($isUpdate))
-              <button type="submit" class="font-semibold text-sm bg-primary700 mt-10 py-3 text-white rounded-xl mb-10 w-[60%]">Update</button>
-              @else
-              <button type="submit" class="font-semibold text-sm bg-primary700 mt-10 py-3 text-white rounded-xl mb-10 w-[60%]">Tambah</button>
-              @endif
+              <button type="submit" class="font-semibold text-sm bg-primary700 mt-10 py-3 text-white rounded-xl mb-10 w-[60%]">Submit</button>
             </div>
           </form>
         </div>
