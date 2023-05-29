@@ -9,7 +9,9 @@
 <body>
     @include('components.navbar')
     <div>
-
+        @foreach ($data as $item)
+            <p>{{$item['nik']}}</p>
+        @endforeach
     </div>
     @include('components.footer')
 </body>

@@ -36,13 +36,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/detail', [PenyewaController::class, 'showDetailPenyewa']);
     Route::get('/kamar-to-sewa', [KamarController::class, 'showKamarToSewa']);
     Route::post('/kamar-to-sewa', [KamarController::class, 'sendKamarToSewa']);
-    Route::get('/new-penyewa', function () {
-        return view('penyewa.index');
-    });
+    Route::get('/penyewa',[PenyewaController::class, 'showPenyewa']);
 
     Route::get('/list-kamar', [KamarController::class, 'showListKamar']);
     Route::get('/new-kamar', [KamarController::class, 'showAddKamar']);
     Route::post('/new-kamar', [KamarController::class, 'addKamar']);
     Route::delete('/list-kamar', [KamarController::class, 'deleteKamar']);
-
+    Route::delete('/penyewa', [PenyewaController::class, 'deletePenyewa']);
+    Route::post('/new-penyewa', [PenyewaController::class, 'listPenyewa']);
+    Route::post('/update-penyewa', [PenyewaController::class], 'listPenyewaUpdate');
 });

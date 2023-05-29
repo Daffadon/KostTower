@@ -30,12 +30,34 @@ class PenyewaController extends Controller
         $model->alamat = $req->alamat;
         $model->save();
 
-        return redirect('/list-kamar');
+        return view('/penyewa');
     }
 
     function showPenyewa(Request $req){
         $data = Penyewa::all();
-        return view('penyewa/home', compact('data'));
+        return view('penyewa.index', compact('data'));
+    }
+
+
+    function deletePenyewa(Request $req)
+    {
+        $kode = $req->nik;
+        $penyewa = Penyewa::where('nik', $kode)->first();
+
+        if ($penyewa) {
+            $penyewa->delete();
+            return redirect('/penyewa');
+        }
+    }
+
+    function listPenyewa(Request $req){
+        return view('penyewa.listsewa');
+    }
+
+    function listPenyewaUpdate(Request $req){
+        $isUpdate = true;
+
+        // return view('penyewa.listsewa',['isUpdate' => $isUpdate]);
     }
 
 }
