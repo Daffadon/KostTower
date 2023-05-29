@@ -11,7 +11,8 @@ return new class extends Migration {
     public function up(): void
     {
         Schema::create('penyewa', function (Blueprint $table) {
-            $table->string('nik');
+            $table->id();
+            $table->string('nik')->unique();
             $table->string('nama');
             $table->date('ttl');
             $table->string('alamat');
@@ -20,7 +21,6 @@ return new class extends Migration {
             $table->string('pekerjaan');
             $table->string('kewarganegaraan');
             $table->string('telepon');
-            $table->primary('nik');
             $table->timestamps();
         });
     }

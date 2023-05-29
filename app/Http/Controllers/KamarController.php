@@ -55,7 +55,7 @@ class KamarController extends Controller
         $kamar = Kamar::where('kode_kamar', $kode)->first();
 
         if ($kamar) {
-            $deleted = DB::table('kamar')->where('kode_kamar', $kode)->delete();
+            $kamar->delete();
             return redirect('/list-kamar');
         }
     }
