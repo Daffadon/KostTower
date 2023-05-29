@@ -4,10 +4,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   @vite('resources/css/app.css')
-  <title>Tambah</title>
+  <link rel="icon" href="{{url('/image/logo.svg')}}">
+  <title>Sewa</title>
 </head>
 <body>
-  @include('components.navbar',['user'=>$user])
+  @include('components.navbar')
   <main class="grid grid-cols-[36.5%_59%] gap-10 px-6 pb-10 mb-1 mt-5">
     <div class="bg-white min-h-screen rounded-[40px] shadow-2xl pb-5">
       <img src="{{url('/image/dummy_kamar.svg')}}" alt="" class="relative -top-[0.5] w-full">
