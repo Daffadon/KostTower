@@ -31,21 +31,26 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
-    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/home', [HomeController::class, "showHome"]);
+    Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/detail', [PenyewaController::class, 'showDetailPenyewa']);
+
+    
     Route::get('/kamar-to-sewa', [SewaController::class, 'showKamarToSewa']);
+
+
+
     Route::post('/kamar-to-sewa', [SewaController::class, 'sendKamarToSewa']);
     Route::get('/add-kamar-to-penyewa', [SewaController::class, 'toAddKamarToPenyewa']);
     Route::post('/penyewa-to-sewa', [SewaController::class, 'addKamarToPenyewa']);
-    Route::get('/penyewa',[PenyewaController::class, 'showPenyewa']);
+    Route::get('/penyewa', [PenyewaController::class, 'showPenyewa']);
     Route::get('/list-kamar', [KamarController::class, 'showListKamar']);
     Route::get('/new-kamar', [KamarController::class, 'showAddKamar']);
     Route::post('/new-kamar', [KamarController::class, 'addKamar']);
     Route::delete('/list-kamar', [KamarController::class, 'deleteKamar']);
     Route::delete('/penyewa', [PenyewaController::class, 'deletePenyewa']);
     Route::post('/new-penyewa', [PenyewaController::class, 'listPenyewa']);
-    Route::get('/edit-penyewa', [PenyewaController::class, 'passPenyewa']);    
+    Route::get('/edit-penyewa', [PenyewaController::class, 'passPenyewa']);
     Route::get('/edit', [KamarController::class, 'passData']);
     Route::post('/edit', [KamarController::class, 'updateKamar']);
 

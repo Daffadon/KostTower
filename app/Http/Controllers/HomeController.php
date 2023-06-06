@@ -13,7 +13,6 @@ class HomeController extends Controller
         $data = Penyewa::join('log_transaksi', 'log_transaksi.NIK', '=', 'penyewa.NIK')
             ->where('log_transaksi.tanggal_keluar', '>=', date('Y-m-d'))
             ->select('penyewa.*', 'log_transaksi.*')->get();
-        $user = Auth::user();
-        return view('home/index', compact("data", "user"));
+        return view('home/index', compact("data"));
     }
 }
