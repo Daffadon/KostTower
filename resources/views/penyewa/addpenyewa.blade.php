@@ -37,7 +37,7 @@
               name= "NIK" 
               type="text" 
               class=" border border-black rounded-xl py-2 px-2" 
-              id="NIK" 
+              id="NIK"/> 
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="nama_lengkap">Nama Lengkap</label>
@@ -46,6 +46,7 @@
               type="text" 
               class="border border-black rounded-xl py-2 px-2" 
               id="nama-lengkap"
+              />
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="ttl">Tempat Tanggal Lahir</label>
@@ -54,6 +55,7 @@
               type="date" 
               class="border border-black rounded-xl py-2 px-2" 
               id="ttl"
+              />
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="agama">Agama</label>

@@ -15,6 +15,9 @@ class PenyewaController extends Controller
             ->where('log_transaksi.nik', $key)->get();
         return view('detail.index', compact('data'));
     }
+    function showAddPenyewa(){
+        return view('penyewa.addpenyewa');
+    }
 
     function addPenyewa(Request $req)
     {
@@ -30,7 +33,7 @@ class PenyewaController extends Controller
         $model->alamat = $req->alamat;
         $model->save();
 
-        return view('/penyewa');
+        return view('/penyewa.index');
     }
 
     function showPenyewa(Request $req){
@@ -51,13 +54,34 @@ class PenyewaController extends Controller
     }
 
     function addPenyewaView(Request $req){
-        return view('penyewa.listsewa');
+        return view('penyewa.updatepenyewa');
     }
 
     function passPenyewa(Request $req){
         $nik = $req -> nik;
         $penyewa = Penyewa::where('nik', $nik) -> first();
-        return view('penyewa.listsewa', compact('penyewa'));
+        return view('penyewa.updatepenyewa', compact('penyewa'));
+    }
+
+    function updatePenyewa(Request $req){
+        $nik = $req->NIK;
+
+        $penyewa = Penyewa::where('nik',$nik) -> first();
+
+        if($penyewa){
+            $penyewa->nik = $req->NIK;
+            $penyewa->nama = $req->nama_lengkap;
+            $penyewa->ttl = $req->ttl;
+            $penyewa->agama = $req->agama;
+            $penyewa->status = $req->status;
+            $penyewa->kewarganegaraan = $req->kewarganegaraan;
+            $penyewa->pekerjaan = $req->pekerjaan;
+            $penyewa->telepon = $req->no_telp;
+            $penyewa->alamat = $req->alamat;
+            $penyewa->save();
+        }
+        
+        return redirect('/penyewa');
     }
 
 }

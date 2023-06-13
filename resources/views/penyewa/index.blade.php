@@ -10,9 +10,8 @@
   @include('components.navbar')
   <div class="flex justify-center items-center mt-10 flex-col">
     <h1 class="h3 font-bold">Penyewa</h1>
-    <form action="/new-penyewa", method="POST">
+    <form action="/new-penyewa">
         @csrf
-        @method('POST')
         <button class="h6 bg-primary900 py-2 px-1 mx-4 text-white font-semibold rounded-xl shadow-md hover:shadow-xl duration-300">Add Penyewa</button>
     </form>
   </div>

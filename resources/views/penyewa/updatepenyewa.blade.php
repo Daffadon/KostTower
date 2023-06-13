@@ -149,7 +149,7 @@
               @endif>
             </div>
             <div class="flex justify-center items-center">
-              <button type="submit" class="font-semibold text-sm bg-primary700 mt-10 py-3 text-white rounded-xl mb-10 w-[60%]">@php
+              <button type="submit" action="" class="font-semibold text-sm bg-primary700 mt-10 py-3 text-white rounded-xl mb-10 w-[60%]">@php
                   echo $button_val;
               @endphp</button>
             </div>
