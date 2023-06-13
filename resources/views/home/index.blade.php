@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    @include('components.navbar',['user'=>$user])
+    @include('components.navbar')
     <div class="flex justify-around pt-20 pr-36 pl-40 pb-20">
         <div class="w-1/2">
             <div class="flex flex-col items-start justify-center h-full w-9/12  p-18">

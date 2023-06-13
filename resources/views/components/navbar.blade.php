@@ -11,6 +11,9 @@
       <a href="/list-kamar" class="flex justify-center items-center">
         <p class="text-white text-xl font-semibold">Kamar</p>
       </a>
+      <a href="/penyewa" class="flex justify-center items-center">
+        <p class="text-white text-xl font-semibold">Penyewa</p>
+      </a>
       <form action="{{ route('logout')}}" method="POST" class="flex justify-center items-center mt-3">
         @csrf
         <input type="submit" value="Logout" class="text-xl font-bold border border-white rounded-xl px-7 py-1 text-white cursor-pointer">

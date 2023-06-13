@@ -14,15 +14,14 @@
       <img src="{{url('/image/dummy_kamar.svg')}}" alt="" class="relative -top-[0.5] w-full">
       <h2 class="text-center font-bold text-2xl mt-4">KODE KAMAR</h2>
       <div class="grid grid-cols-5 justify-center items-center px-8 gap-x-3 gap-y-8 my-4 mb-5">
-        
-        @foreach ($logTransaksi as $log)
-          @if ($log['nik']!=null && strtotime($log['tanggal_keluar']) >= strtotime(date('Y-m-d')))
-          <button class=" cursor-text text-center rounded-xl border-[#AC88CE] bg-[#AC88CE] px-2 py-7 transition-all font-bold text-white">{{$log['kode_kamar']}}</button>
+        @foreach ($listKamar as $kamar)
+          @if (!$availableKamar->contains('kode_kamar', $kamar['kode_kamar']))
+          <button class=" cursor-text text-center rounded-xl border-[#AC88CE] bg-[#AC88CE] px-2 py-7 transition-all font-bold text-white">{{$kamar['kode_kamar']}}</button>
           @else
             <form action="/kamar-to-sewa" method="POST">
               @csrf
-              <input type="hidden" name="kode_kamar" value="{{$log['kode_kamar']}}">
-              <button type="submit" class="mt-4 text-center border-[5px] rounded-xl border-primary700 px-2 py-6 transition-all hover:text-white cursor-pointer hover:bg-primary700 font-bold"> {{$log['kode_kamar']}}</button>
+              <input type="hidden" name="kode_kamar" value="{{$kamar['kode_kamar']}}">
+              <button type="submit" class="mt-4 text-center border-[5px] rounded-xl border-primary700 px-2 py-6 transition-all hover:text-white cursor-pointer hover:bg-primary700 font-bold"> {{$kamar['kode_kamar']}}</button>
             </form>
           @endif
         @endforeach
