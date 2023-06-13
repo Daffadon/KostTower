@@ -15,7 +15,8 @@ class PenyewaController extends Controller
             ->where('log_transaksi.nik', $key)->get();
         return view('detail.index', compact('data'));
     }
-    function showAddPenyewa(){
+    function showAddPenyewa()
+    {
         return view('penyewa.addpenyewa');
     }
 
@@ -33,10 +34,11 @@ class PenyewaController extends Controller
         $model->alamat = $req->alamat;
         $model->save();
 
-        return view('/penyewa.index');
+        return redirect('/penyewa');
     }
 
-    function showPenyewa(Request $req){
+    function showPenyewa(Request $req)
+    {
         $data = Penyewa::all();
         return view('penyewa.index', compact('data'));
     }
@@ -53,22 +55,24 @@ class PenyewaController extends Controller
         }
     }
 
-    function addPenyewaView(Request $req){
+    function addPenyewaView(Request $req)
+    {
         return view('penyewa.updatepenyewa');
     }
 
-    function passPenyewa(Request $req){
-        $nik = $req -> nik;
-        $penyewa = Penyewa::where('nik', $nik) -> first();
+    function passPenyewa(Request $req)
+    {
+        $nik = $req->nik;
+        $penyewa = Penyewa::where('nik', $nik)->first();
         return view('penyewa.updatepenyewa', compact('penyewa'));
     }
 
-    function updatePenyewa(Request $req){
+    function updatePenyewa(Request $req)
+    {
         $nik = $req->NIK;
 
-        $penyewa = Penyewa::where('nik',$nik) -> first();
-
-        if($penyewa){
+        $penyewa = Penyewa::where('nik', $nik)->first();
+        if ($penyewa) {
             $penyewa->nik = $req->NIK;
             $penyewa->nama = $req->nama_lengkap;
             $penyewa->ttl = $req->ttl;
@@ -80,7 +84,7 @@ class PenyewaController extends Controller
             $penyewa->alamat = $req->alamat;
             $penyewa->save();
         }
-        
+
         return redirect('/penyewa');
     }
 
