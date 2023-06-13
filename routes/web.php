@@ -37,13 +37,13 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/kamar-to-sewa', [KamarController::class, 'showKamarToSewa']);
     Route::post('/kamar-to-sewa', [KamarController::class, 'sendKamarToSewa']);
     Route::get('/penyewa',[PenyewaController::class, 'showPenyewa']);
-
     Route::get('/list-kamar', [KamarController::class, 'showListKamar']);
     Route::get('/new-kamar', [KamarController::class, 'showAddKamar']);
     Route::post('/new-kamar', [KamarController::class, 'addKamar']);
     Route::delete('/list-kamar', [KamarController::class, 'deleteKamar']);
     Route::delete('/penyewa', [PenyewaController::class, 'deletePenyewa']);
     Route::post('/new-penyewa', [PenyewaController::class, 'listPenyewa']);
+    Route::post('/add-penyewa',[PenyewaController::class, 'addPenyewa']);
     Route::get('/edit-penyewa', [PenyewaController::class, 'passPenyewa']);    
     Route::get('/edit', [KamarController::class, 'passData']);
     Route::post('/edit', [KamarController::class, 'updateKamar']);

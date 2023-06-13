@@ -50,7 +50,7 @@ class PenyewaController extends Controller
         }
     }
 
-    function listPenyewa(Request $req){
+    function addPenyewaView(Request $req){
         return view('penyewa.listsewa');
     }
 

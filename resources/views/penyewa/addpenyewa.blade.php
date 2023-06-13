@@ -8,8 +8,17 @@
   <title>Tambah</title>
 </head>
 <body>
+  @php
+  $button_val = 'Tambah';    
+  @endphp
   @if(isset($penyewa))
+  @php
+  $button_val = 'Update';
+  @endphp
   @else
+  @php
+  $button_val = 'Tambah';    
+  @endphp
   @endif
   @include('components.navbar')
   <main class="px-6 pt-3 mb-10 flex justify-center items-center flex-col">
@@ -29,11 +38,6 @@
               type="text" 
               class=" border border-black rounded-xl py-2 px-2" 
               id="NIK" 
-              value=@if(isset($penyewa))
-              {{$penyewa['nik']}}
-              @else 
-                ''
-              @endif>
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="nama_lengkap">Nama Lengkap</label>
@@ -42,7 +46,6 @@
               type="text" 
               class="border border-black rounded-xl py-2 px-2" 
               id="nama-lengkap"
-              value={{$penyewa['nama']}}>
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="ttl">Tempat Tanggal Lahir</label>
@@ -51,7 +54,6 @@
               type="date" 
               class="border border-black rounded-xl py-2 px-2" 
               id="ttl"
-              value={{$penyewa['ttl']}}>
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="agama">Agama</label>
@@ -59,8 +61,7 @@
               name="agama"
               type="text" 
               class="border border-black rounded-xl py-2 px-2" 
-              id="agama"
-              value={{$penyewa['agama']}}>
+              id="agama">
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="status">Status</label>
@@ -68,8 +69,7 @@
               name="status"
               type="text" 
               class="border border-black rounded-xl py-2 px-2" 
-              id="status"
-              value={{$penyewa['status']}}>
+              id="status">
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="kewarganegaraan">Kewarganegaraan</label>
@@ -77,8 +77,7 @@
               name="kewarganegaraan"
               type="text" 
               class=" border border-black rounded-xl py-2 px-2" 
-              id="kewarganegaraan"
-              value={{$penyewa['kewarganegaraan']}}>
+              id="kewarganegaraan">
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="pekerjaan">Pekerjaan</label>
@@ -86,8 +85,7 @@
               name="pekerjaan" 
               type="text" 
               class="border border-black rounded-xl py-2 px-2" 
-              id="pekerjaan"
-              value={{$penyewa['pekerjaan']}}>
+              id="pekerjaan">
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="no_telp">Nomor Telepon</label>
@@ -95,8 +93,7 @@
               name="no_telp"
               type="text" 
               class="border border-black rounded-xl py-2 px-2" 
-              id="no-telp"
-              value={{$penyewa['telepon']}}>
+              id="no-telp">
             </div>
             <div class="flex flex-col gap-3 mt-3">
               <label for="alamat">Alamat</label>
@@ -104,11 +101,12 @@
               name="alamat" 
               type="text" 
               class="border border-black rounded-xl py-2 px-2" 
-              id="alamat"
-              value={{$penyewa['alamat']}}>
+              id="alamat">
             </div>
             <div class="flex justify-center items-center">
-              <button type="submit" class="font-semibold text-sm bg-primary700 mt-10 py-3 text-white rounded-xl mb-10 w-[60%]">Submit</button>
+              <button type="submit" class="font-semibold text-sm bg-primary700 mt-10 py-3 text-white rounded-xl mb-10 w-[60%]">@php
+                  echo $button_val;
+              @endphp</button>
             </div>
           </form>
         </div>
