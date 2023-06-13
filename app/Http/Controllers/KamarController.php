@@ -16,18 +16,7 @@ class KamarController extends Controller
         return view('addKamar.index', compact("kamar"));
     }
 
-    public function showKamarToSewa()
-    {
-        $logTransaksi = Log_Transaksi::rightJoin('kamar', 'kamar.kode_kamar', '=', 'log_transaksi.kode_kamar')
-            ->select('*')->get();
-        return view('sewa/kamarSewa', compact("logTransaksi"));
-    }
-
-    public function sendKamarToSewa(Request $request)
-    {
-        $kode_kamar = $request['kode_kamar'];
-        return view('sewa/penyewaSewa', compact("kode_kamar"));
-    }
+    
 
     function addKamar(Request $req)
     {

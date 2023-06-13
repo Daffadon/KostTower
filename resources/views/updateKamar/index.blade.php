@@ -60,19 +60,6 @@
               <input class="w-5 h-5" type="checkbox" name="balkon" id="balkon">
               <label class="h6" for="balkon">Balkon</label>
             </div>
-            <div class="flex items-center gap-5">
-              <input class="w-5 h-5" type="checkbox" name="dalam" id="opsi">
-              <label class="h6" for="opsi">Tambah opsi lain</label>
-            </div>
-            <div class="flex justify-start">
-              <input 
-              class="mt-4 h6 w-full border outline-none border-shade100 rounded-2xl py-4 px-6 placeholder:text-neutral-700" 
-              type="text" 
-              name="tambahan" 
-              placeholder="Masukan opsi tambahan"
-              >
-              {{-- <img class="relative -mr-10" src="{{ url('/image/add.svg')}}" alt=""> --}}
-            </div>
             <p class="h5 font-bold mt-4">
               Harga
             </p>

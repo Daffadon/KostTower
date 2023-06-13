@@ -8,16 +8,17 @@
 </head>
 <body>
   @include('components.navbar')
-  <div>
+  <div class="flex justify-center items-center mt-10 flex-col">
+    <h1 class="h3 font-bold">Penyewa</h1>
     <form action="/new-penyewa", method="POST">
         @csrf
         @method('POST')
-        <button>Add Penyewa</button>
+        <button class="h6 bg-primary900 py-2 px-1 mx-4 text-white font-semibold rounded-xl shadow-md hover:shadow-xl duration-300">Add Penyewa</button>
     </form>
   </div>
-  <div>
-    <table>
-        <tr>
+  <div class=" flex justify-center items-center">
+    <table class="w-[90%] ">
+        <tr class="text-center">
             <th>NIK</th>
             <th>Nama</th>
             <th>TTL</th>
@@ -29,8 +30,8 @@
             <th>Telepon</th>
             <th colspan="2">Detail</th>
         </tr>
-        <tr>
-            @foreach ($data as $item)
+        @foreach ($data as $item)
+        <tr class="border border-black text-center">
                 <td>
                     {{$item['nik']}}
                 </td>
@@ -60,11 +61,11 @@
                 </td>
                 <td>
                     <a href="/edit-penyewa?nik={{$item['nik']}}">
-                        <button>Update</button>
+                        <button class="bg-success500 py-1 px-6 mx-4 text-white font-semibold rounded-lg">Update</button>
                     </a>
                 </td>
                 <td>
-                    <form action="/penyewa?nik={{$item['nik']}}" method="POST">
+                    <form action="/penyewa?nik={{$item['nik']}}" method="POST" class="pt-4">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="bg-err500 py-1 px-6 mx-4 text-white font-semibold rounded-lg">Delete</button>
