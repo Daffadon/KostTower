@@ -16,8 +16,10 @@
             </div>
             <a class="place-self-end self-center" href="new-kamar">
                 <button
-                    class="h6 bg-primary900 py-4 px-2 mx-4 text-white font-semibold rounded-xl shadow-md hover:shadow-xl duration-300">Tambah
-                    Kamar</button>
+                    class="h6 bg-primary900 py-4 px-2 mx-4 text-white font-semibold rounded-xl shadow-md hover:shadow-xl duration-300">
+                    Tambah Kamar
+                </button>
+
             </a>
         </div>
         <div class="p-5 flex justify-center">

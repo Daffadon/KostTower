@@ -5,11 +5,13 @@
 @section('content')
     <div class="flex justify-center items-center mt-10 flex-col">
         <h1 class="h3 font-bold">Penyewa</h1>
-        <form action="/new-penyewa">
+        <form action="/new-penyewa" class="self-end mr-16 mt-5 mb-8">
             @csrf
             <button
-                class="h6 bg-primary900 py-2 px-1 mx-4 text-white font-semibold rounded-xl shadow-md hover:shadow-xl duration-300">Add
-                Penyewa</button>
+                class="h6 bg-primary900 py-4 px-2 mx-4 text-white font-semibold rounded-xl shadow-md hover:shadow-xl duration-300">
+                Tambah Penyewa
+            </button>
+
         </form>
     </div>
     <div class=" flex justify-center items-center">
