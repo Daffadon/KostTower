@@ -48,7 +48,11 @@
                         {{ $data['tanggal_masuk'] }}</td>
                     <td class="text-center font-semibold border border-r-primary800 border-b-primary800">
                         {{ $data['tanggal_keluar'] }}</td>
-                    <td class="text-center font-semibold border border-b-primary800">@include('components.detail_button')</td>
+                    <td class="text-center font-semibold border border-b-primary800">
+                        <a href="detail?id={{ $data['nik'] }}">
+                            @include('includes.detail_button')
+                        </a>
+                    </td>
                 </tr>
             @endforeach
             <tr>

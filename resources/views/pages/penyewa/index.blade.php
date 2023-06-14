@@ -57,15 +57,14 @@
                     </td>
                     <td>
                         <a href="/edit-penyewa?nik={{ $item['nik'] }}">
-                            <button class="bg-success500 py-1 px-6 mx-4 text-white font-semibold rounded-lg">Update</button>
+                            @include('includes.update_button')
                         </a>
                     </td>
                     <td>
                         <form action="/penyewa?nik={{ $item['nik'] }}" method="POST" class="pt-4">
                             @csrf
                             @method('DELETE')
-                            <button type="submit"
-                                class="bg-err500 py-1 px-6 mx-4 text-white font-semibold rounded-lg">Delete</button>
+                            @include('includes.delete_button')
                         </form>
                     </td>
                 </tr>
