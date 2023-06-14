@@ -17,7 +17,7 @@ class SewaController extends Controller
                 ->where('tanggal_keluar', '>=', date('Y-m-d'));
         })->get();
         $listKamar = Kamar::all();
-        return view('sewa/kamarSewa', compact('availableKamar', 'listKamar'));
+        return view('pages.sewa.kamarSewa', compact('availableKamar', 'listKamar'));
     }
 
     public function sendKamarToSewa(Request $request)
@@ -32,15 +32,7 @@ class SewaController extends Controller
             ->where('log_transaksi.tanggal_keluar', '>=', date('Y-m-d'))
             ->get();
         $kode_kamar = $request['kode_kamar'];
-
-        // return redirect('/add-kamar-to-penyewa')->with(
-        //     [
-        //         "list_penyewa" => $penyewaNotRenting,
-        //         "list_not_penyewa" => $penyewaRenting,
-        //         "kode_kamar" => $kode_kamar
-        //     ]
-        // );
-        return view('sewa/penyewaSewa', compact("kode_kamar", "list_penyewa", 'list_not_penyewa'));
+        return view('pages.sewa.penyewaSewa', compact("kode_kamar", "list_penyewa", 'list_not_penyewa'));
     }
     public function addKamarToPenyewa(Request $request)
     {
