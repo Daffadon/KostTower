@@ -1,16 +1,8 @@
-<html lang="en">
+@extends('layouts.default')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite('resources/css/app.css')
-    <link rel="icon" href="{{ url('/image/logo.svg') }}">
-    <title>List Kamar</title>
-</head>
+@section('content_title', 'Kamar')
 
-<body>
-    @include('components.navbar')
+@section('content')
     <div class="flex flex-col min-h-[70vh] gap-20 py-20">
         <div class="flex items-center justify-between w-full px-24">
             <div></div>
@@ -31,8 +23,7 @@
         <div class="p-5 flex justify-center">
             <table class="w-11/12 rounded-3xl shadow-xl">
                 <tr class="h-14">
-                    <th
-                        class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tl-lg">
+                    <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tl-lg">
                         Kode Kamar</td>
                     <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">Lantai
                         </td>
@@ -46,8 +37,7 @@
                     <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">King Bed
                         </td>
                     <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center">Harga</td>
-                    <th
-                        class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">
+                    <th class="h5 w-1/9 font-bold text-white bg-primary800 border border-r-white text-center rounded-tr-lg">
                         Detail</td>
                 </tr>
                 @foreach ($kamar as $data)
@@ -114,7 +104,4 @@
             </table>
         </div>
     </div>
-    @include('components.footer')
-</body>
-
-</html>
+@endsection

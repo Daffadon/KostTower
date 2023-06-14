@@ -1,16 +1,8 @@
-<html lang="en">
+@extends('layouts.default')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    @vite('resources/css/app.css')
-    <link rel="icon" href="{{ url('/image/logo.svg') }}">
-    <title>Sewa</title>
-</head>
+@section('content_title', 'Sewa')
 
-<body>
-    @include('components.navbar')
+@section('content')
     <main class="grid grid-cols-[36.5%_59%] gap-10 px-6 pb-10 mb-1 mt-5">
         <div class="bg-white min-h-screen rounded-[40px] shadow-2xl pb-5">
             <img src="{{ url('/image/dummy_kamar.svg') }}" alt="" class="relative -top-[0.5] w-full">
@@ -153,6 +145,4 @@
             </div>
         </div>
     </main>
-</body>
-
-</html>
+@endsection

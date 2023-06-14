@@ -20,13 +20,16 @@ use App\Http\Controllers\HomeController;
 */
 
 Route::middleware(['guest'])->group(function () {
-    Route::get('/login', [AuthController::class, 'loginView'])->name('login');
-    Route::post('/login', [AuthController::class, 'login'])->name('login');
-    Route::get('/signup', [AuthController::class, 'signupView'])->name('signup');
-    Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
+    //Root
     Route::get('/', function () {
         return redirect('/login');
     });
+    // login
+    Route::get('/login', [AuthController::class, 'loginView'])->name('login');
+    Route::post('/login', [AuthController::class, 'login'])->name('login');
+    //Signup
+    Route::get('/signup', [AuthController::class, 'signupView'])->name('signup');
+    Route::post('/signup', [AuthController::class, 'signup'])->name('signup');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -36,6 +39,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/home', [HomeController::class, "showHome"]);
     //Penyewa
     Route::get('/detail', [PenyewaController::class, 'showDetailPenyewa']);
+
     Route::get('/penyewa', [PenyewaController::class, 'showPenyewa']);
     Route::delete('/penyewa', [PenyewaController::class, 'deletePenyewa']);
     Route::get('/new-penyewa', [PenyewaController::class, 'showAddPenyewa']);
@@ -55,5 +59,4 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/list-kamar', [KamarController::class, 'deleteKamar']);
     Route::get('/edit', [KamarController::class, 'passData']);
     Route::post('/edit', [KamarController::class, 'updateKamar']);
-
 });
