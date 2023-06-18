@@ -12,7 +12,12 @@ class PenyewaController extends Controller
     $key = $req->id;
     $listData = Penyewa::join('log_transaksi', 'log_transaksi.nik', '=', 'penyewa.nik')
       ->join('kamar', 'log_transaksi.kode_kamar', '=', 'kamar.kode_kamar')
-      ->where('log_transaksi.nik', $key)->get();
+      ->where('log_transaksi.id', $key)
+      ->select('penyewa.*', 'log_transaksi.id as log_transaksi_id', 'log_transaksi.*', 'kamar.*')
+      ->get();
+    // $listData = Penyewa::join('log_transaksi', 'log_transaksi.nik', '=', 'penyewa.nik')
+    //   ->join('kamar', 'log_transaksi.kode_kamar', '=', 'kamar.kode_kamar')
+    //   ->where('log_transaksi.nik', $key)->get();
     $data = $listData[sizeof($listData) - 1];
     return view('pages.sewa.detail.index', compact('data'));
   }

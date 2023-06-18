@@ -49,7 +49,7 @@
                     <td class="text-center font-semibold border border-r-primary800 border-b-primary800">
                         {{ $data['tanggal_keluar'] }}</td>
                     <td class="text-center font-semibold border border-b-primary800">
-                        <a href="detail?id={{ $data['nik'] }}">
+                        <a href="detail?id={{ $data['id'] }}">
                             @include('includes.detail_button')
                         </a>
                     </td>

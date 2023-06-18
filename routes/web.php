@@ -55,7 +55,9 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/kamar-to-sewa', [SewaController::class, 'showKamarToSewa']);
     Route::get('/kamar-to-sewa/{kode_kamar}', [SewaController::class, 'sendKamarToSewa']);
     Route::post('/penyewa-to-sewa', [SewaController::class, 'addKamarToPenyewa']);
-    // Route::post('/kamar-to-sewa/', [SewaController::class, 'sendKamarToSewa']);
+    Route::get('/logupdate/{log_transaksi_id}', [SewaController::class, 'updateSewaView']);
+    Route::post('/logupdate/{log_transaksi_id}', [SewaController::class, 'updateSewa']);
+    Route::delete('/log-delete/{log_transaksi_id}', [SewaController::class, 'deleteSewa']);
 
     //Kamar
     Route::get('/list-kamar', [KamarController::class, 'showListKamar']);

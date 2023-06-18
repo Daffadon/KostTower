@@ -19,7 +19,41 @@ class SewaController extends Controller
         $listKamar = Kamar::all();
         return view('pages.sewa.kamarSewa', compact('availableKamar', 'listKamar'));
     }
-
+    public function updateSewaView(int $log_transaksi_id)
+    {
+        $logToUpdate = Log_Transaksi::where('id', $log_transaksi_id)->first();
+        $list_penyewa = Penyewa::leftJoin('log_transaksi', 'penyewa.nik', '=', 'log_transaksi.nik')
+            ->whereNull('log_transaksi.nik')
+            ->orWhere('log_transaksi.tanggal_keluar', '<', date('Y-m-d'))
+            ->select('penyewa.nama', 'penyewa.nik')
+            ->get();
+        $list_not_penyewa = Penyewa::join('log_transaksi', 'penyewa.nik', '=', 'log_transaksi.nik')
+            ->where('log_transaksi.tanggal_masuk', '<=', date('Y-m-d'))
+            ->where('log_transaksi.tanggal_keluar', '>=', date('Y-m-d'))
+            ->get();
+        $activePenyewa = Penyewa::where('nik', $logToUpdate['nik'])->first();
+        return view('pages.sewa.update_penyewaSewa', compact('logToUpdate', 'list_penyewa', 'list_not_penyewa', 'activePenyewa'));
+    }
+    public function updateSewa(Request $request, int $log_transaksi_id)
+    {
+        $status_pembayaran = 0;
+        if ($request['status_pembayaran'] == 'on') {
+            $status_pembayaran = 1;
+        }
+        $updatedData = [
+            'kode_kamar' => $request['kode_kamar'],
+            'tanggal_masuk' => $request['tanggal_masuk'],
+            'tanggal_keluar' => $request['tanggal_keluar'],
+            'status_pembayaran' => $status_pembayaran
+        ];
+        Log_Transaksi::where('id', $log_transaksi_id)->update($updatedData);
+        return redirect('/detail?id=' . $log_transaksi_id);
+    }
+    public function deleteSewa(int $log_transaksi_id)
+    {
+        Log_Transaksi::where('id', $log_transaksi_id)->delete();
+        return redirect('/');
+    }
     public function sendKamarToSewa(Request $request, string $kode_kamar)
     {
         $list_penyewa = Penyewa::leftJoin('log_transaksi', 'penyewa.nik', '=', 'log_transaksi.nik')
