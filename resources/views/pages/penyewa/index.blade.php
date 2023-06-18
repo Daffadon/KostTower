@@ -58,12 +58,12 @@
                         {{ $item['telepon'] }}
                     </td>
                     <td>
-                        <a href="/edit-penyewa?nik={{ $item['nik'] }}">
+                        <a href="/edit-penyewa?nik={{ $item['nik'] }}" class="my-2">
                             @include('includes.update_button')
                         </a>
                     </td>
                     <td>
-                        <form action="/penyewa?nik={{ $item['nik'] }}" method="POST" class="pt-4">
+                        <form action="/penyewa?nik={{ $item['nik'] }}" method="POST" class="my-2">
                             @csrf
                             @method('DELETE')
                             @include('includes.delete_button')

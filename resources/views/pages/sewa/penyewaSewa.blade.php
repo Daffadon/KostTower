@@ -20,27 +20,33 @@
                         <div class="flex items-center justify-around">
                             <div class="flex flex-col gap-3 mt-3 w-3/4 justify-center items-center">
                                 <label for="masuk">Tanggal Masuk</label>
-                                <input name="tanggal_masuk" type="date"
+                                <input name="tanggal_masuk" type="date" required
                                     class="border w-3/4 border-black rounded-xl py-2 px-2" id="masuk">
                             </div>
                             <div class="flex flex-col gap-3 mt-3 w-3/4 justify-center items-center">
                                 <label for="keluar">Tanggal Keluar</label>
-                                <input name="tanggal_keluar" type="date"
+                                <input name="tanggal_keluar" type="date" required
                                     class="border w-3/4 border-black rounded-xl py-2 px-2" id="keluar">
                             </div>
                         </div>
-                        <div class="flex justify-center items-center mt-6 ">
-                            <select name="nik" class="w-max border border-black px-5 rounded-lg py-2">
+                        <div class="flex justify-center flex-col items-center mt-6 ">
+                            <p class="mb-4">Penyewa</p>
+                            <select name="nik" class="border border-black rounded-lg py-2 px-5">
                                 @foreach ($list_penyewa as $penyewa)
                                     @if (@isset($list_not_penyewa) && !$list_not_penyewa->contains('nik', $penyewa['nik']))
                                         <option value="{{ $penyewa['nik'] }}"
-                                            @if ($loop->first) selected @endif>{{ $penyewa['nama'] }}
+                                            @if ($loop->first) selected @endif>
+                                            <p>{{ $penyewa['nama'] }} <span> - {{ $penyewa['nik'] }}</span></p>
                                         </option>
                                     @endif
                                 @endforeach
                             </select>
                         </div>
-                        <input type="hidden" name="list_penyewa" value="{{ $list_penyewa }}">
+                        <div class="text-center mt-5 flex justify-center items-center">
+                            <input name="status_pembayaran" type="checkbox"
+                                class="justify-center items-center w-5 h-5 inline-block mr-3" id="pembayaran">
+                            <label for="pembayaran" class="">Pembayaran</label>
+                        </div>
                         <div class="flex justify-center items-center">
                             <button type="submit"
                                 class="font-semibold text-sm bg-primary700 mt-10 py-3 text-white rounded-xl mb-10 w-[60%]">Tambah</button>

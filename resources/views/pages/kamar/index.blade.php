@@ -86,8 +86,7 @@
                         </td>
                         <td class="text-center font-semibold border border-r-primary800 border-b-primary800">Rp
                             {{ $data['harga'] }}</td>
-                        <td class="text-center font-semibold border border-b-primary800 flex justify-center pt-4">
-
+                        <td class="text-center font-semibold border border-b-primary800 flex justify-around py-2">
                             <form action="/list-kamar?kode={{ $data['kode_kamar'] }}" method="POST">
                                 @csrf
                                 @method('DELETE')

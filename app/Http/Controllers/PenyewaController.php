@@ -10,9 +10,10 @@ class PenyewaController extends Controller
   function showDetailPenyewa(Request $req)
   {
     $key = $req->id;
-    $data = Penyewa::join('log_transaksi', 'log_transaksi.nik', '=', 'penyewa.nik')
+    $listData = Penyewa::join('log_transaksi', 'log_transaksi.nik', '=', 'penyewa.nik')
       ->join('kamar', 'log_transaksi.kode_kamar', '=', 'kamar.kode_kamar')
       ->where('log_transaksi.nik', $key)->get();
+    $data = $listData[sizeof($listData) - 1];
     return view('pages.sewa.detail.index', compact('data'));
   }
   function showAddPenyewa()

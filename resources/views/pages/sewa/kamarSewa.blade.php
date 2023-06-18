@@ -13,13 +13,11 @@
                         <button
                             class=" cursor-text text-center rounded-xl border-[#AC88CE] bg-[#AC88CE] px-2 py-7 transition-all font-bold text-white">{{ $kamar['kode_kamar'] }}</button>
                     @else
-                        <form action="/kamar-to-sewa" method="POST">
-                            @csrf
-                            <input type="hidden" name="kode_kamar" value="{{ $kamar['kode_kamar'] }}">
-                            <button type="submit"
-                                class="mt-4 w-full text-center border-[5px] rounded-xl border-primary700 px-2 py-6 transition-all hover:text-white cursor-pointer hover:bg-primary700 font-bold">
+                        <a href="/kamar-to-sewa/{{ $kamar['kode_kamar'] }}">
+                            <button
+                                class="w-full text-center border-[3px] rounded-xl border-primary700 px-2 py-7 transition-all hover:text-white cursor-pointer hover:bg-primary700 font-bold">
                                 {{ $kamar['kode_kamar'] }}</button>
-                        </form>
+                        </a>
                     @endif
                 @endforeach
             </div>
