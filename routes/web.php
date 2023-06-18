@@ -33,13 +33,17 @@ Route::middleware(['guest'])->group(function () {
 });
 
 Route::middleware(['auth'])->group(function () {
+
     //logout
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+
     //Home
     Route::get('/home', [HomeController::class, "showHome"]);
-    //Penyewa
     Route::get('/detail', [PenyewaController::class, 'showDetailPenyewa']);
 
+
+    //Penyewa
     Route::get('/penyewa', [PenyewaController::class, 'showPenyewa']);
     Route::delete('/penyewa', [PenyewaController::class, 'deletePenyewa']);
     Route::get('/new-penyewa', [PenyewaController::class, 'showAddPenyewa']);
@@ -49,8 +53,11 @@ Route::middleware(['auth'])->group(function () {
 
     //Sewa
     Route::get('/kamar-to-sewa', [SewaController::class, 'showKamarToSewa']);
-    Route::post('/kamar-to-sewa', [SewaController::class, 'sendKamarToSewa']);
+    Route::get('/kamar-to-sewa/{kode_kamar}', [SewaController::class, 'sendKamarToSewa']);
     Route::post('/penyewa-to-sewa', [SewaController::class, 'addKamarToPenyewa']);
+    Route::get('/logupdate/{log_transaksi_id}', [SewaController::class, 'updateSewaView']);
+    Route::post('/logupdate/{log_transaksi_id}', [SewaController::class, 'updateSewa']);
+    Route::delete('/log-delete/{log_transaksi_id}', [SewaController::class, 'deleteSewa']);
 
     //Kamar
     Route::get('/list-kamar', [KamarController::class, 'showListKamar']);
