@@ -28,23 +28,43 @@
                         Fasilitas
                     </p>
                     <div class="flex items-center gap-5">
-                        <input class="w-5 h-5" type="checkbox" name="dalam" id="dalam">
+                        @if ($kamar['kamar_mandi_dalam'] === 1)
+                            <input class="w-5 h-5" type="checkbox" name="dalam" id="dalam" checked>
+                        @else
+                            <input class="w-5 h-5" type="checkbox" name="dalam" id="dalam">
+                        @endif
                         <label class="h6" for="dalam">Kamar mandi dalam</label>
                     </div>
                     <div class="flex items-center gap-5">
-                        <input class="w-5 h-5" type="checkbox" name="ac" id="ac">
+                        @if ($kamar['isAc'] === 1)
+                            <input class="w-5 h-5" type="checkbox" name="ac" id="ac" checked>
+                        @else
+                            <input class="w-5 h-5" type="checkbox" name="ac" id="ac">
+                        @endif
                         <label class="h6" for="ac">AC</label>
                     </div>
                     <div class="flex items-center gap-5">
-                        <input class="w-5 h-5" type="checkbox" name="heater" id="heater">
+                        @if ($kamar['isWaterHeater'] === 1)
+                            <input class="w-5 h-5" type="checkbox" name="heater" id="heater" checked>
+                        @else
+                            <input class="w-5 h-5" type="checkbox" name="heater" id="heater">
+                        @endif
                         <label class="h6" for="heater">Water Heater</label>
                     </div>
                     <div class="flex items-center gap-5">
-                        <input class="w-5 h-5" type="checkbox" name="bed" id="bed">
+                        @if ($kamar['isKingBed'] === 1)
+                            <input class="w-5 h-5" type="checkbox" name="bed" id="bed" checked>
+                        @else
+                            <input class="w-5 h-5" type="checkbox" name="bed" id="bed">
+                        @endif
                         <label class="h6" for="bed">King Bed</label>
                     </div>
                     <div class="flex items-center gap-5">
-                        <input class="w-5 h-5" type="checkbox" name="balkon" id="balkon">
+                        @if ($kamar['isBalkon'] === 1)
+                            <input class="w-5 h-5" type="checkbox" name="balkon" id="balkon" checked>
+                        @else
+                            <input class="w-5 h-5" type="checkbox" name="balkon" id="balkon" checked>
+                        @endif
                         <label class="h6" for="balkon">Balkon</label>
                     </div>
                     <p class="h5 font-bold mt-4">
