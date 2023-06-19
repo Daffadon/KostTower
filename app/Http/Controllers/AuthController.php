@@ -14,7 +14,7 @@ class AuthController extends Controller
 
     public function loginView()
     {
-        return view('login.index');
+        return view('pages.auth.login.index');
     }
     public function login(LoginRequest $request)
     {
@@ -27,7 +27,7 @@ class AuthController extends Controller
     }
     public function signupView()
     {
-        return view('signup/index');
+        return view('pages.auth.signup.index');
     }
     public function signup(SignupRequest $request)
     {
