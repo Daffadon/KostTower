@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use DB;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
 class PenyewaSeeder extends Seeder
@@ -16,7 +15,7 @@ class PenyewaSeeder extends Seeder
         $penyewa = [
             [
                 'nik' => '1234567890',
-                'nama' => 'John Doev',
+                'nama' => 'Daffa',
                 'ttl' => '1990-01-01',
                 'alamat' => '123 Main St, City',
                 'agama' => 'Islam',
@@ -27,7 +26,7 @@ class PenyewaSeeder extends Seeder
             ],
             [
                 'nik' => '1234567891',
-                'nama' => 'John Doea',
+                'nama' => 'Putra',
                 'ttl' => '1990-01-01',
                 'alamat' => '123 Main St, City',
                 'agama' => 'Islam',
@@ -38,7 +37,7 @@ class PenyewaSeeder extends Seeder
             ],
             [
                 'nik' => '1234567892',
-                'nama' => 'John Doek',
+                'nama' => 'Narendra',
                 'ttl' => '1990-01-01',
                 'alamat' => '123 Main St, City',
                 'agama' => 'Islam',
@@ -49,7 +48,7 @@ class PenyewaSeeder extends Seeder
             ],
             [
                 'nik' => '1234567893',
-                'nama' => 'John Does',
+                'nama' => 'Firhan',
                 'ttl' => '1990-01-01',
                 'alamat' => '123 Main St, City',
                 'agama' => 'Islam',
@@ -60,7 +59,7 @@ class PenyewaSeeder extends Seeder
             ],
             [
                 'nik' => '1234567894',
-                'nama' => 'John Does',
+                'nama' => 'Imam',
                 'ttl' => '1990-01-01',
                 'alamat' => '123 Main St, City',
                 'agama' => 'Islam',
@@ -71,7 +70,7 @@ class PenyewaSeeder extends Seeder
             ],
             [
                 'nik' => '1234567895',
-                'nama' => 'John Does',
+                'nama' => 'Haekal',
                 'ttl' => '1990-01-01',
                 'alamat' => '123 Main St, City',
                 'agama' => 'Islam',
@@ -82,7 +81,7 @@ class PenyewaSeeder extends Seeder
             ],
             [
                 'nik' => '1234567896',
-                'nama' => 'John Does',
+                'nama' => 'NT',
                 'ttl' => '1990-01-01',
                 'alamat' => '123 Main St, City',
                 'agama' => 'Islam',

@@ -2,7 +2,6 @@
     <p class="text-shade50 font-bold text h3 text-center bg-primary800 py-4 rounded-t-3xl">
         DETAIL PENYEWA KAMAR {{ $data['kode_kamar'] }}
     </p>
-    <p>{{ $data }}</p>
     @if ($data['status_pembayaran'] == 1)
         <p class="h5 text-center py-3 bg-succeess700 text-white">Sudah Bayar</p>
     @else
