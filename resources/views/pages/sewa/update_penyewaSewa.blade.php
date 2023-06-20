@@ -3,7 +3,6 @@
 @section('content_title', 'Update Sewa')
 
 @section('content')
-    <p>{{ $logToUpdate }}</p>
     <main class="px-6 pt-3 mb-10 flex justify-center items-center flex-col">
         <div class="w-[50%]">
             <img src="{{ url('/image/dummy_kamar.svg') }}" alt="" class="relative w-full top-16 -z-10">

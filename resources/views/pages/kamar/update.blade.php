@@ -36,7 +36,7 @@
                         <label class="h6" for="dalam">Kamar mandi dalam</label>
                     </div>
                     <div class="flex items-center gap-5">
-                        @if ($kamar['isAc'] === 1)
+                        @if ($kamar['isAC'] === 1)
                             <input class="w-5 h-5" type="checkbox" name="ac" id="ac" checked>
                         @else
                             <input class="w-5 h-5" type="checkbox" name="ac" id="ac">

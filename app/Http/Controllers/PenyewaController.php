@@ -75,11 +75,10 @@ class PenyewaController extends Controller
 
   function updatePenyewa(Request $req)
   {
-    $nik = $req->NIK;
-
+    $nik = $req->nik;
     $penyewa = Penyewa::where('nik', $nik)->first();
     if ($penyewa) {
-      $penyewa->nik = $req->NIK;
+      $penyewa->nik = $req->nik;
       $penyewa->nama = $req->nama_lengkap;
       $penyewa->ttl = $req->ttl;
       $penyewa->agama = $req->agama;
